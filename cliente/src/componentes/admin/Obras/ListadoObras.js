@@ -20,7 +20,7 @@ const ListadoObras = () => {
     },[])
 
     // para cuando no tengamos ningundato en nuestras tablas este genera alguna
-    if(obras.length===0) return <p>No hay obras comienza creando uno</p>;
+    if(obras.length===0) return <p>No hay obras comienza creando uno.</p>;
 
     return ( 
 

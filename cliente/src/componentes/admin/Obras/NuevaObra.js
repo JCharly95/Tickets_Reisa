@@ -6,7 +6,7 @@ const NuevoProyecto = () => {
 
     // se obtiene los archivos del state de obrasState
     const obraContext = useContext(ObrasContext);
-    const { formulario,errorFormulario ,mostrarObras,agregarObra,mostrarError}= obraContext;
+    const { formulario,errorformulario ,mostrarObras,agregarObra,mostrarError}= obraContext;
 
     const [obra, guardarObra] = useState({
         nombre:'',
@@ -53,8 +53,8 @@ const NuevoProyecto = () => {
             onClick={onClickFormulario}
             >Nueva Obra</button>
 
-        {formulario ? 
-        
+        {formulario 
+        ? 
         (
             <form className="formulario-nuevo-obra"
             onSubmit={onSubmitObra}
@@ -73,13 +73,12 @@ const NuevoProyecto = () => {
             value="Agregar Obra"
             />
             </form>
-        )
-        
-        :null}
-
-         {errorFormulario ? <p className="mensaje error">El nombre de la obra es obligatorio</p> : null}   
+        ): null
+        }
+        {errorformulario ?<p className="mensaje error">El nombre de la obra es obligatiorio</p> : null}
         </Fragment>
      );
 }
  
 export default NuevoProyecto;
+

@@ -31,9 +31,9 @@ const ObrasState = props => {
             type:FORMULARIO_OBRA,
         })
     }
+    // arreglo de obras
     const obras = [
-        {id:1,nombre:'Anteus'},
-        {id:2,nombre:'Carretera Anahuac'}
+
     ]
     
     // obtenerObras nueva obra
