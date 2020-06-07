@@ -20,6 +20,7 @@ const ObrasState = props => {
         formulario: false,
         errorformulario:false,
         obra:null,
+        
     }
 
     // dispatch parra ejecutar las acciones
