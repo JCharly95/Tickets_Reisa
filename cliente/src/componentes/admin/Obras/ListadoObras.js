@@ -1,7 +1,7 @@
 import React,{useContext,useEffect} from 'react';
 import Obra from './Obra';
 import ObrasContext from '../../../context/obras/obrasContext';
-import {TransitionGroup, CSSTransition} from '../../../../node_modules/react-transition-group';
+import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
 
 const ListadoObras = () => {
