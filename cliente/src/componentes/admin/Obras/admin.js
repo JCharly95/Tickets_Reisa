@@ -1,6 +1,7 @@
 import React from 'react';
 import Barra from '../../layout/Barra';
 import SideBar from '../../layout/SideBar';
+import TablaForm from '../Tablas de Obras/TablaForm';
 
 
 const Principal = () => {
@@ -12,8 +13,10 @@ const Principal = () => {
         <div className="seccion-principal">
             <Barra/>
             <main>
-                <div className=".contenedor-tareas">
+                
 
+                <div className=".contenedor-tareas">
+                    <TablaForm/>
                 </div>
             </main>
         </div>

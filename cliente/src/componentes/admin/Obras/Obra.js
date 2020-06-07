@@ -7,9 +7,13 @@ const ListadoObra = ({obra}) => {
     const obraContext = useContext(ObrasContext);
     const {obraActual} = obraContext;
     
+    // obtener el id de la tabla
+
+
     // agregar al proyecto actual
     const seleccionarObra= id=>{
-        obraActual(id); //fija proyecto actual
+        obraActual(id); //fija obra actual
+         //configuracion id actual
     }
     return ( 
         <li>
