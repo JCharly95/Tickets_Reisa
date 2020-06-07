@@ -119,24 +119,24 @@ aside  {
   padding: 3rem;
 }
 
-.formulario-nuevo-obra {
+.formulario-nuevo-proyecto {
   margin-top: 6rem;
 }
-.formulario-nuevo-obra .input-text {
+.formulario-nuevo-proyecto .input-text {
   border-bottom: 1px solid var(--gris2);
   border-radius: 0;
   background-color: var(--gris1);
 }
-.formulario-nuevo-obra .input-text::placeholder{
+.formulario-nuevo-proyecto .input-text::placeholder{
   color: var(--gris2);
 }
-.obras {
+.proyectos {
   margin-top: 10rem;
 }
-.listado-obra li {
+.listado-proyectos li {
   margin-bottom: 2rem;
 }
-.listado-obras li a {
+.listado-proyectos li a {
   font-size: 1.4rem;
   color: var(--gris2);
   line-height: 1.5;
@@ -274,20 +274,20 @@ aside  {
 
 
 .tarea-enter,
-.obra-enter {
+.proyecto-enter {
   opacity: 0;
 }
 .tarea-enter-active,
-.obra-enter-active {
+.proyecto-enter-active {
   opacity: 1;
   transition: opacity 200ms;
 }
 .tarea-exit,
-.obra-exit {
+.proyecto-exit {
   opacity: 1;
 }
 .tarea-exit-active,
-.obra-exit-active {
+.proyecto-exit-active {
   opacity: 0;
   transition: opacity 200ms;
 }
