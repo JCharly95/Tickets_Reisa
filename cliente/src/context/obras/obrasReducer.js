@@ -27,13 +27,13 @@ export default (state,action)=>{
             return{
                 ...state,
                 obras: [...state.obras,action.payload],
-                formulario: false,
+                formulario:false,
                 errorformulario:false,
             }
         case VALIDAR_FORMULARIO:
             return{
                 ...state,
-                errorformulario: true,
+                errorformulario:true,
             }
         case OBRAS_ACTUALES:
             return{
