@@ -1,7 +1,7 @@
 import React from 'react';
 import Barra from '../../layout/Barra';
 import SideBar from '../../layout/SideBar';
-import TablaForm from '../Tablas de Obras/TablaForm';
+import TablaGenerla from '../Tablas de Obras/TablaGeneral';
 
 
 const Principal = () => {
@@ -14,9 +14,9 @@ const Principal = () => {
             <Barra/>
             <main>
                 
-
-                <div className=".contenedor-tareas">
-                    <TablaForm/>
+                <div className=".contenedor-datos">
+                    <TablaGenerla/>
+                    
                 </div>
             </main>
         </div>
