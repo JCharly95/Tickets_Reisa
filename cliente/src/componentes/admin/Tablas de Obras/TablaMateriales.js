@@ -4,14 +4,30 @@ import React,{Fragment, useState} from 'react';
 const TablaMateriales = () => {
 
     const [material, guardarMaterial] = useState({
-        material:[],
+        materiales:[
+            {id: 1, material:'Aproche'},
+            {id: 2, material: 'Arena'},
+            {id: 2, material: 'Base'},
+            {id: 2, material: 'Base 60-40'},
+            {id: 2, material: 'Base 1 1/2 a 1/4'},
+            {id: 2, material:  'Base 1 1/2 a finos'},
+            {id: 2, material:  'Desperdicio'},
+            {id: 2, material: 'Despalme'},
+            {id: 2, material: 'Base'},
+            {id: 2, material: 'Base'},
+            {id: 2, material: 'Base'},
+            {id: 2, material: 'Base'},
+            {id: 2, material: 'Base'},
+            {id: 2, material: 'Base'},
+            {id: 2, material: 'Base'},
+
+        ],
 
     })
     
     const materiales = [
         'Aproche',
         'Arena',
-        'Base',
         'Base',
         'Base 60-40',
         'Base 1 1/2 a 1/4',
