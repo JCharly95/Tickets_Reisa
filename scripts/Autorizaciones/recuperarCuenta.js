@@ -6,27 +6,22 @@ class Valores{
 }
 
 class Validacion{
-
     mostrarmensaje(){
         const mensaje = document.getElementById('mensaje error');
         const imprimir = document.createElement('p');
-        imprimir.innerHTML = `
-                <p class="mensaje error">Datos Incorrectos o Vacios<p>
-        `;
+        imprimir.innerHTML = `<p class="mensaje error">Datos Incorrectos o Vacios<p>`;
         mensaje.appendChild(imprimir);
 
         // Remueve el texto dspues de tres segundos 
-        setTimeout(function () {
+        setTimeout(function (){
             document.querySelector('p').remove();
-            
         }, 3000);
-        
     }
+
     resetAutorizacion(){
         document.getElementById('autorizacion').reset();
     }
 }
-
 
 // eventos dom de la pantalla
 document.getElementById("autorizacion")
