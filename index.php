@@ -1,7 +1,7 @@
 <?php 
     echo file_get_contents('Bootstrap/htmlBootstrap.html');
 
-    require('conexion.php');
+    require('server/conexion.php');
     $con=conectar();
 
     $sql='Select Correo,Contra,Status from usuarios;';
