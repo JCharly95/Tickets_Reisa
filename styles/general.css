@@ -3,6 +3,7 @@
   --gris1: #edf2f6;
   --gris2: #2f3848;
   --gris3: #1a202d;
+  --gris4: #9bb3dd;
   --negro: #000000;
   --headingFont:'Raleway', sans-serif;
   --textFont:  'Roboto', sans-serif;
@@ -22,8 +23,6 @@ body {
   font-size: 1.6rem;
   font-family: var(--textFont);
 }
-
-
 h1, h2 {
   font-family: var(--headingFont);
   font-weight: 900;
@@ -42,6 +41,10 @@ h2 {
   margin-top: 3rem;
 
 }
+th{
+  text-align: left;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -50,6 +53,29 @@ ul {
 a {
   text-decoration: none;
   color: var(--gris2);
+}
+/* app */
+.app{
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* row */
+.border{
+  border-color: var(--gris3);
+  border-width: 3rem;
+  
+  background-color: var(--blanco);
+} 
+/* modal */
+.modal{
+  background-color: var(--gris3);
+  font-family: var(--headingFont);
+
+}
+.form-group{
+  font-size: 18px;
 }
 
 /* Selecciones */
@@ -73,7 +99,7 @@ a {
   margin-top: 2rem;
   font-family: var(--headingFont);
   padding: 1.5rem;
-  font-size: 1.4;
+  font-size: 18px;
   font-weight: 400;
   border-radius: .5rem;
   border: none;
@@ -85,12 +111,19 @@ a {
 .btn-primario {
   background-color: var(--gris2);
   color: var(--blanco);
+  
 }
 .btn-primario:hover {
-  background: var(--gris3);
+  background: var(--blanco);
 }
 .btn-secundario {
-  background-color: var(--gris1);
+  background-color: var(--gris4);
+  color: var(--gris3);
+
+}
+.btn-secundario{
+  background: var(--gris1);
+  
 }
 .btn-terciario{
   text-align: right;
@@ -100,10 +133,20 @@ a {
 .btn-terciario:hover {
   background: var(--gris3);
 }
+.btn-cuarto{
+  
+  text-align: right;
+  background-color: var(--gris2);
+  color: var(--blanco);
+}
+.btn-cuarto:hover {
+  background: var(--blanco);
+}
 .btn-block {
   display: block;
   width: 100%;
 }
+
 .btn-submit:hover {
   background-color: var(--gris2);
 }
@@ -123,7 +166,7 @@ a {
 
 @media (min-width: 768px) {
   .contenedor-app {
-      display: flex;
+      display: table-caption;
       min-height: 100vh;
   }
 
@@ -134,7 +177,6 @@ a {
   .seccion-principal {
       flex: 1;
   }
-
 }
 
 
@@ -144,17 +186,19 @@ aside  {
 }
 
 .formulario-nuevo-obra {
-  margin-top: 6rem;
+  margin-top: 15rem;
 }
 .formulario-nuevo-obra .input-text {
   border-bottom: 1px solid var(--gris2);
   border-radius: 0;
   background-color: var(--gris1);
   width: 100%;
+  
 }
 .formulario-nuevo-obra .input-text::placeholder{
   color: var(--gris2);
 }
+
 .obras {
   margin-top: 10rem;
 }
@@ -188,6 +232,16 @@ aside  {
 .nav-principal a:first-of-type {
   margin-right: 2rem;
 }
+.nav .nav-tabs{
+  width: 100%;
+  color: var(--blanco);
+  text-decoration: none;
+}
+
+/* formulario obra */
+.form-control{
+  size: 10px;
+}
 
 /** Formulario crear y editar tareas **/
 .formulario {
@@ -208,39 +262,18 @@ aside  {
   color: var(--blanco);
 }
 .input-text {
-  font-family: var(--headingFont);
-  padding: 1.5rem;
-  font-size: 1rem;
-  font-weight: 400;
-  border-radius: .5rem;
+  /* border-color: var(--gris4); */
+  padding: 1rem;
+  font-size: 1.3rem;
+  font-weight: 300;
   border: none;
-  transition: background-color .3s ease;
-  border: none;
-  flex: 1;
-  width: 25%;
-}
-
-/** TAREAS LISTADO **/
-.contenedor-dato {
-  padding: 4rem;
-}
-
-
-.listado-dato {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.dato {
-  display: contents;
-  justify-content: space-between;
-  background-color: var(--blanco);
-  padding: .5rem 2rem;
-  align-items: center;
-  margin-bottom: 1rem;
   border-radius: .5rem;
   
+  flex: 1;
+  width: 100%;
 }
+
+/** SOMBRAS **/
 .sombra {
   -webkit-box-shadow: 0px 4px 10px -3px rgba(117,117,117,1);
   -moz-box-shadow: 0px 4px 10px -3px rgba(117,117,117,1);
@@ -250,6 +283,26 @@ aside  {
   -webkit-box-shadow: 0px 6px 11px -8px rgba(0,0,0,0.9);
   -moz-box-shadow: 0px 6px 11px -8px rgba(0,0,0,0.9);
   box-shadow: 0px 6px 11px -8px rgba(0,0,0,0.9);
+}
+
+/* datos */
+.contenedor-dato {
+  padding: 4rem;
+}
+
+.listado-dato {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.dato {
+  display: contents;
+  justify-content: space-between;
+  background-color: var(--blanco);
+  padding: .5rem 2rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-radius: .5rem;
+  
 }
 .dato .acciones .btn:first-of-type {
   margin-right: 1rem;
@@ -266,10 +319,30 @@ aside  {
   margin: 0;
 }
 
+/* mostrar datos */
+.resultado{
+  font-size: 1.8rem;
+  border: none;
+  font-weight: 400;
+  border-radius: .3rem;
+  text-align: center;
+  font-family: var(--textFont);
+}
+/* estados */
 .estado {
   margin-right: 1rem;
 }
-.estado button, 
+
+.estado {
+  font-weight: 900;
+  font-family: var(--textFont);
+  font-size: 1.2rem;
+  padding: .5rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  border: none;
+}
+
 .mensaje {
   font-weight: 900;
   font-family: var(--textFont);
@@ -287,24 +360,46 @@ aside  {
 .mensaje:hover {
   cursor: default;
 }
-.activo,
-.correcto {
+
+
+/* verde o rojo */
+.boton{
+  margin-top: 1rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  border: none;
+
+}
+.activo{
+
+  font-weight: 600;
+  background-color: rgba(154, 252, 154, 1);
+  color: var(--gris3);
+  border-radius: .5rem;
+  border: none;
+}
+
+.correcto{
   background-color: rgba(154, 252, 154, 1);
   color: var(--gris3);
 }
 .desactivado{
+  
+  font-weight: 600;
   background-color: rgba(255, 178, 178, 1);
   color: var(--gris3);
+  border: none;
+  border-radius: .5rem;
 }
 .error {
-  max-width: 600px;
+  max-width: 1100;
   margin: 2rem auto 0 auto;
   background-color: rgb(170, 0, 0);
   color: var(--blanco);
 }
 
 
-
+/* datos enter */
 .dato-enter,
 .obra-enter {
   opacity: 0;
@@ -319,11 +414,14 @@ aside  {
   opacity: 1;
 }
 .dato-exit-active,
+
+/* obra exit active */
 .obra-exit-active {
   opacity: 0;
   transition: opacity 200ms;
 }
 
+/* login */
 .form-usuario {
     background-color: var(--gris2);
     height: 100vh;
@@ -369,12 +467,23 @@ aside  {
 
 
 /* tablas */
-.tablas {
+.table {
   background-color: var(--blanco);
   color: var(--gris3);
-  margin: 0;  
-  }
+  margin-top: 1rem;  
+}
 
 .tablas-derecha{
   text-align: right;
 }
+.custom-select, .checador, .material{
+  /* margin-left: 2rem; */
+  font-size: 1.8vh;
+  width: 100;
+  border: none;
+}
+.input-group-text{
+  font-size: 1.8vh;
+  width: 100;
+}
+
