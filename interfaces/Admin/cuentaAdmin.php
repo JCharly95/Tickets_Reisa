@@ -18,10 +18,10 @@
   $nssrepetido=false;
   $fila;
   while($fila = mysqli_fetch_array($consulta)){
-  if($mailAdmin ==  $fila['Correo'] && $pwAdmin == $fila["Contra"] && $fila["Tip_User"]==1 && $fila["Estatus"]==1 )  {  //Datos del Admin
-      $nssrepetido=true;
-      break;
-  }
+    if($mailAdmin ==  $fila['Correo'] && $pwAdmin == $fila["Contra"] && $fila["Tip_User"]==1 && $fila["Estatus"]==1 )  {  //Datos del Admin
+        $nssrepetido=true;
+        break;
+    }
   }
 
   if($nssrepetido){
