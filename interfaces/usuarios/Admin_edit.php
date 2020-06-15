@@ -8,7 +8,7 @@
 </head>
 <body style="background: linear-gradient(to right, #34495e, #ebedef);">
 <?php
-    include ('../../conexion.php');
+    include ('../../server/conexion.php');
     $conexion=conectar();
 
     $mailAdmin=$_POST["mail"];
