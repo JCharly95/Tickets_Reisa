@@ -1,5 +1,17 @@
 <?php 
     echo file_get_contents('../Bootstrap/htmlBootstrap.html');
+    require('../server/conexion.php');
+    $con=conectar();
+
+    $sql='Select Nombre,Correo,Status from usuarios;';
+    if($res=$con->query($sql)){
+        //Obtener un array asociativo
+        $datos=array();
+        while($fila=$res->fetch_assoc()){
+            $datos[]=$fila;
+        }
+        echo '<script>var usuarios='.json_encode($datos,JSON_PRETTY_PRINT).';</script>';
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,14 +31,14 @@
             </div>
             <form id="autorizacion" action="" method="post">
                 <div class="campo-form">
-                    <label >Email</label>
+                    <label>Email</label>
                     <input type="email" id="email" name="email" placeholder="Tu email"/>
                 </div>
                 <div class="campo-form">
                     <input type="submit" class="btn btn-primario btn-block" value="Recuperar Cuenta"/>
                 </div>
             </form>
-            <a class="enlace-cuenta" href="../index.php">Ir Iniciar Sesión</a>
+            <a class="btn btn-info btn-block border" href="../index.php">Regresar a Iniciar Sesión</a>
         </div>
     </div>
     <script src="../scripts/Autorizaciones/recuperarCuenta.js"></script>

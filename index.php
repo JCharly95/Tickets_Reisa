@@ -1,10 +1,9 @@
 <?php 
     echo file_get_contents('Bootstrap/htmlBootstrap.html');
-
     require('server/conexion.php');
     $con=conectar();
 
-    $sql='Select Correo,Contra,Status from usuarios;';
+    $sql='Select Nombre,Correo,Contra,Status from usuarios;';
     if($res=$con->query($sql)){
         //Obtener un array asociativo
         $datos=array();

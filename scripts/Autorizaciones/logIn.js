@@ -37,10 +37,10 @@ addEventListener('submit', function(e){
     //Banderas de busqueda de usuario
     var busU=false;
     var busC=false;
+    var sta=0;
     e.preventDefault();
     
     //const valores = new Valores(email, contra);
-
     const validacion = new Validacion();
     //Verificacion de campos vacios
     if(email=='' || contra==''){
@@ -80,8 +80,21 @@ addEventListener('submit', function(e){
                 if(usuarios[contReg].Contra==contra){
                     busC=true;
                 }
-                //Si ambos datos coinciden se termina el ciclo de busqueda
+                //Si ambos datos coinciden se determina el tipo de usuario que desea ingresar y termina el ciclo de busqueda
+                //Valores de Status: 0=Usuario Inactivo, 1=Usuario en Proceso, 2=Usuario Activo
                 if(busU && busC){
+                    sta=usuarios[contReg].Status;
+                    switch (sta){
+                        case 0:
+                            alert('El usuario con el que desea ingresar fue dado de baja en el sistema.');
+                            break;
+                        case 1:
+                            alert('El usuario con el que desea ingresar esta en proceso de ser activado, favor de contactar con los administradores para mas informacion');
+                            break;
+                        case 2:
+                            alert('Bienvenido '+usuarios[contReg].Nombre);
+                            break;
+                    }
                     break;
                 }
             }
