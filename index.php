@@ -25,7 +25,7 @@
             <div id="mensaje error">
 
             </div>
-            <form id="autorizacion" action="" method="post">
+            <form id="autorizacion" action="server/login.php" method="post">
                 <div class="campo-form">
                     <label >Email</label>
                     <input type="email" id="email" name="email" placeholder="Tu email"/>
