@@ -48,10 +48,10 @@ function validacion() {
         document.formul.type_user.focus();
         cond = false;
     }
-    if (!document.formul.status.value && cond == true) {
+    if (!document.formul.Sta_User.value && cond == true) {
         verificar = false;
-        alert("por favor ingrese el status del usuario");
-        document.formul.status.focus();
+        alert("por favor ingrese el Sta_User del usuario");
+        document.formul.Sta_User.focus();
         cond = false;
     }
 

@@ -5,17 +5,17 @@
     $nombre='';
     $correo=$_POST['email'];
     $contra=$_POST['password'];
-    $status=4;
+    $Sta_User=4;
 
-    $sql='Select Nombre,Status from usuarios where Correo="'.$correo.'";';
+    $sql='Select Nombre,Sta_User from usuarios where Correo="'.$correo.'";';
     if($res=$con->query($sql)){
         while($fila=$res->fetch_assoc()){
-            $status=$fila['Status'];
+            $Sta_User=$fila['Sta_User'];
             $nombre=$fila['Nombre'];
         }
     }
 
-    switch ($status){
+    switch ($Sta_User){
         case 0:
             echo '<script>alert("Tu usuario fue dado de baja en el sistema");</script>';
             header('../index.php');

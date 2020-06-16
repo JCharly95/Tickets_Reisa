@@ -3,7 +3,7 @@
     require('../server/conexion.php');
     $con=conectar();
 
-    $sql='Select Nombre,Correo,Status from usuarios;';
+    $sql='Select Nombre,Correo,Sta_User from usuarios;';
     if($res=$con->query($sql)){
         //Obtener un array asociativo
         $datos=array();

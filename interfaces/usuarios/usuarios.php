@@ -70,7 +70,7 @@
           <td> <?php echo $fila['Fec_Nac']  ?> </td>
           <td> <?php echo $fila['Correo']  ?> </td>
           <td> <?php echo $fila['Tip_User']  ?> </td>
-          <td> <?php echo $fila['Estatus']  ?> </td>
+          <td> <?php echo $fila['Sta_User']  ?> </td>
         </tr>
       </tbody>
       <?php

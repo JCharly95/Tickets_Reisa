@@ -18,7 +18,7 @@
   $nssrepetido=false;
   $fila;
   while($fila = mysqli_fetch_array($consulta)){
-    if($mailAdmin ==  $fila['Correo'] && $pwAdmin == $fila["Contra"] && $fila["Tip_User"]==1 && $fila["Estatus"]==1 )  {  //Datos del Admin
+    if($mailAdmin ==  $fila['Correo'] && $pwAdmin == $fila["Contra"] && $fila["Tip_User"]==1 && $fila["Sta_User"]==1 )  {  //Datos del Admin
         $nssrepetido=true;
         break;
     }
@@ -64,8 +64,8 @@
       <select name="type_user"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
         <option value="1">administrador</option>
       </select>
-      <label class="mdb-main-label">Status</label>
-      <select name="status"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
+      <label class="mdb-main-label">Sta_User</label>
+      <select name="Sta_User"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
         <option value="">Seleccione</option>
         <option value="1">Activo</option>
         <option value="0">Inactivo</option>

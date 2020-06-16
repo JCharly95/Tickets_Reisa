@@ -17,7 +17,7 @@
     $correo=$_POST["Correo"];
     $contra=$_POST["defaultForm_pw"];
     $tip_user=$_POST["type_user"];
-    $status=$_POST["status"];
+    $Sta_User=$_POST["Sta_User"];
     /*
     Sólo hay 1 admin registrado en la base de datos
     No puede darse de baja ni cambiar de puesto en estas condiciones.
@@ -37,7 +37,7 @@
             $x++;
         }
     }
-    if($x==1 &&  $n["Tip_User"]==1 && $status !=1){
+    if($x==1 &&  $n["Tip_User"]==1 && $Sta_User !=1){
         $verdadero=1;
     }
     else{
@@ -45,7 +45,7 @@
     }
     if($verdadero==2){
         $sql= "UPDATE usuarios SET NSS='$nss', Nombre='$nombre', Fec_Nac='$fec_nac', Correo='$correo',
-        Contra='$contra', Tip_User='$tip_user', Estatus='$status' WHERE NSS=$id";
+        Contra='$contra', Tip_User='$tip_user', Sta_User='$Sta_User' WHERE NSS=$id";
 
         if($conexion ->query($sql) ==TRUE){
             echo"Usuario actualizado exitosamente";

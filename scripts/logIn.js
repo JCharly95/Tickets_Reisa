@@ -81,9 +81,9 @@ addEventListener('submit', function(e){
                     busC=true;
                 }
                 //Si ambos datos coinciden se determina el tipo de usuario que desea ingresar y termina el ciclo de busqueda
-                //Valores de Status: 0=Usuario Inactivo, 1=Usuario en Proceso, 2=Usuario Activo
+                //Valores de Sta_User: 0=Usuario Inactivo, 1=Usuario en Proceso, 2=Usuario Activo
                 if(busU && busC){
-                    sta=usuarios[contReg].Status;
+                    sta=usuarios[contReg].Sta_User;
                     switch (sta){
                         case 0:
                             alert('El usuario con el que desea ingresar fue dado de baja en el sistema.');

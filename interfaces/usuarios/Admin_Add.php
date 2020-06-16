@@ -66,8 +66,8 @@
                 <option value="4">Transportista</option>
                 <option value="5">Control de obra</option>
             </select>
-            <select name="status"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
-                <option value="">Status de Usuario</option>
+            <select name="Sta_User"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
+                <option value="">Sta_User de Usuario</option>
                 <option value="1">Activo</option>
                 <option value="2">En proceso</option>
                 <option value="0">Inactivo</option>
