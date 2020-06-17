@@ -20,9 +20,9 @@
             <h5 class="card-header text-center">Datos del usuario</h5>
             <div class="card-body">
                 <form name="registro" id="RegUser" action="../server/registrar.php" method="post">
-                <div id="mensaje error">
+                    <div id="mensaje error">
 
-                </div>
+                    </div>
                     <div class="form-group">
                         <fieldset class="border pl-3 pr-3">
                             <legend>Datos Personales</legend>
@@ -69,7 +69,14 @@
                         </fieldset>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Registrarse" class="btn btn-primary btn-block">
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="submit" value="Registrarse" class="btn btn-primary btn-block">
+                            </div>
+                            <div class="col-6">
+                                <a href="../index.php" class="btn btn-secondary btn-block"> Regresar al Inicio</a>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
