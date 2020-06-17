@@ -30,7 +30,7 @@
                                     <h2>Checador</h2>
                                 </div>  
                                 <div class="col-3">
-                                    <button type="submit" class="btn btn-primario btn-block" >Siguiente</button>
+                                    <input type="submit" class="btn btn-primario btn-block" value="Siguiente"/>
                                 </div>
                             </div>
                         </div>

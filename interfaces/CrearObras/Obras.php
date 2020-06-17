@@ -18,7 +18,7 @@
         <div class="container border">
             <div class="row">
                 <form class="col-4" action="./ObrasBE.php" method="post">
-                    <button name="crearobra" type="submit" class="btn btn-primario btn-block" value="">Crear Obra</button>
+                    <input name="crearobra" type="submit" class="btn btn-primario btn-block" value="Crear Obra"/>
                 </form>
             </div>
             <div class="table-responsive">

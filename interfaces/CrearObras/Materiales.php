@@ -32,15 +32,18 @@
                               <h2>Materiales de obra</h2>
                             </div>  
                             <div class="col-3">
-                                <button type="submit" class="btn btn-primario btn-block" value="">Siguiente</button>
+                                <input type="submit" class="btn btn-primario btn-block" value="Siguiente"/>
                             </div>
                         </div>
                         </div>
                         <div id="mensaje error"></div>
                         <td>
                             <div class="input-group ">
-                
+                                <!-- <div class="campo-form">
+                                  <label class="input-group-text" for="checador">Checador</label>
+                                </div> -->
                                 <select id="material" name="material" class="custom-select material" >
+                                  <!-- usar la tabla que creo itz de crear usuarios -->
                                   <?php   
                                     $sql="SELECT * FROM materiales";
                                     $query=$con->query($sql);
