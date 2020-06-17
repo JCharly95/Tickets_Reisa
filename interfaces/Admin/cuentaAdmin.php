@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="../usuarios/validar_usuarios.js"></script>
-    
-
+    <script type="text/javascript" src="../../scripts/validar_usuarios.js"></script>
     <title>CuentaAdmin</title>
 </head>
 <body style="background: linear-gradient(to right, #34495e, #ebedef);">
@@ -20,7 +18,7 @@
   $nssrepetido=false;
   $fila;
   while($fila = mysqli_fetch_array($consulta)){
-    if($mailAdmin ==  $fila['Correo'] && $pwAdmin == $fila["Contra"] && $fila["Tip_User"]==5 && $fila["Sta_User"]==2 )  {  //Datos del Admin
+    if($mailAdmin ==  $fila['Correo'] && $pwAdmin == $fila["Contra"] && $fila["Tip_User"]==1 && $fila["Sta_User"]==1 )  {  //Datos del Admin
         $nssrepetido=true;
         break;
     }
@@ -34,7 +32,7 @@
       <strong>Configuración del ADMIN</strong>
   </h5>
   <div class="card-body px-lg-5">
-    <form name="formul" class="text-center" style="color:#000000" action="../usuarios/editar.php" method="POST">
+    <form name="formul" class="text-center" style="color:#000000" action="editar.php" method="POST">
       <div class="md-form mb-2">
         <label data-error="wrong" data-success="right"> NSS antiguo </label>
         <?php
@@ -64,12 +62,12 @@
       </div>
       <label class="mdb-main-label">Admin</label>
       <select name="type_user"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
-        <option value="5">administrador</option>
+        <option value="1">administrador</option>
       </select>
-      <label class="mdb-main-label">Status</label>
-      <select name="status"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
+      <label class="mdb-main-label">Sta_User</label>
+      <select name="Sta_User"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
         <option value="">Seleccione</option>
-        <option value="2">Activo</option>
+        <option value="1">Activo</option>
         <option value="0">Inactivo</option>
       </select>
       <button id="boton" class="btn btn-outline-danger btn-rounded btn-block z-depth-0 my-4 waves-effect" type="button">Continuar</button>

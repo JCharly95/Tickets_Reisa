@@ -69,14 +69,7 @@
                         </fieldset>
                     </div>
                     <div class="form-group">
-                        <div class="row">
-                            <div class="col-6">
-                                <input type="submit" value="Registrarse" class="btn btn-primary btn-block">
-                            </div>
-                            <div class="col-6">
-                                <a href="../index.php" class="btn btn-warning btn-block">Regresar al Inicio</a>
-                            </div>
-                        </div>
+                        <input type="submit" value="Registrarse" class="btn btn-primary btn-block">
                     </div>
                 </form>
             </div>

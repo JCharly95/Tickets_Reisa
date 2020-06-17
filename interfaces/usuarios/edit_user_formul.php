@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="./validar_usuarios.js"></script>
-
+    <script type="text/javascript" src="../../scripts/validar_usuarios.js"></script>
     <title>Editar_Usuario</title>
 </head>
 <body style="background: linear-gradient(to right, #34495e, #ebedef);">
@@ -63,18 +62,18 @@
       </div>
       <label class="mdb-main-label">Tipo de usuario</label>
       <select name="type_user"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
-      <option value="">Puesto de Usuario</option>
-      <option value="1">Checador</option>
-      <option value="2">Ingeniero civil</option>
-      <option value="3">Control de obra</option>
-      <option value="4">Transportista</option>
-      <option value="5">Admin</option>
+        <option value="">seleccione</option>
+        <option value="1">Admin</option>
+        <option value="2">Checador</option>
+        <option value="3">Ingeniero civil</option>
+        <option value="4">Transportista</option>
+        <option value="5">Control de obra</option>
       </select>
-      <label class="mdb-main-label">Status</label>
-      <select name="status"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
+      <label class="mdb-main-label">Sta_User</label>
+      <select name="Sta_User"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
         <option value="">Seleccione</option>
-        <option value="2">Activo</option>
-        <option value="1">En proceso</option>
+        <option value="1">Activo</option>
+        <option value="2">En proceso</option>
         <option value="0">Inactivo</option>
       </select>
       <button id="boton" class="btn btn-outline-danger btn-rounded btn-block z-depth-0 my-4 waves-effect" type="button">Continuar</button>
