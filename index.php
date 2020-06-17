@@ -35,17 +35,17 @@
                     <input type="password" id="password" name="password" placeholder="Tu password"/>
                 </div>
                 <div class="campo-form">
-                    <input type="submit" class="btn btn-primario btn-block" value="Iniciar Sesión"/>
+                    <button type="submit" class="btn btn-primario btn-block">Iniciar Sesi&oacute;n</button>
+                </div>
+                <div class="campo-form">
+                    <div class="col-6">
+                        <a class="btn btn-warning btn-block border" href="interfaces/recuperarCuenta.php">Recuperar Cuenta</a>
+                    </div>
+                    <div class="col-6">
+                        <a class="btn btn-info btn-block border" href="interfaces/registro.php">Registrarse</a>
+                    </div>
                 </div>
             </form>
-            <div class="campo-form">
-                <div class="col-6">
-                    <a class="btn btn-warning btn-block border" href="interfaces/recuperarCuenta.php">Recuperar Cuenta</a>
-                </div>
-                <div class="col-6">
-                    <a class="btn btn-info btn-block border" href="interfaces/registro.php">Registrarse</a>
-                </div>
-            </div>
         </div>
     </div> 
     <script src="scripts/logIn.js"></script>
