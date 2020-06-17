@@ -42,6 +42,6 @@
             </form>
         </div>
     </div>
-    <script src="../scripts/Autorizaciones/recuperarCuenta.js"></script>
+    <script src="../scripts/recuperarCuenta.js"></script>
 </body>
 </html>

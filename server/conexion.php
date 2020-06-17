@@ -5,6 +5,6 @@
     }
     
     function desconectar($conexion){
-        desconectar($conexion);
+        $conexion->close();
     }
 ?>
