@@ -20,22 +20,22 @@
 
     switch ($Sta_User){
         case 0:
-            echo '<script>alert("Tu usuario fue dado de baja en el sistema");</script>';
-            header('../index.php');
+            echo "<script languaje='Javascript'>alert('Tu usuario fue dado de baja en el sistema.');
+            window.location.href='../index.php'</script>";
         break;
         case 1:
-            echo '<script>alert("Tu usuario esta en proceso de ser activado, por favor ponte en contacto con los administradores");</script>';
-            header('../index.php');
+            echo "<script languaje='Javascript'>alert('Tu usuario esta en proceso de ser activado, por favor ponte en contacto con los administradores.');
+            window.location.href='../index.php'</script>";
         break;
         case 2:
-            echo '<script>alert("Bienvenido '.$nombre.'");</script>';
             $_SESSION['correo']=$correo;
             $_SESSION['contra']=$contra;
-            header('../interfaces/Inicio/Inicio.php');
+            echo "<script languaje='Javascript'>alert('Bienvenido ".$nombre."');
+            window.location.href='../interfaces/Inicio/Inicio.php'</script>";
         break;
         default:
-            echo '<script>alert("Hubo un error con tu usuario");</script>';
-            header('../index.php');
+            echo "<script languaje='Javascript'>alert('El usuario no fue encontrado');
+            window.location.href='../index.php'</script>";
             break;
     }
 ?>
