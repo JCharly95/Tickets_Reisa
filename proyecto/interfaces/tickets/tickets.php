@@ -76,6 +76,7 @@
             FROM tickets
             INNER JOIN camiones Cam ON tickets.Placas = Cam.Placa
             ";
+                       
             $consulta= $conexion->query($que);
             if($consulta){
             while($fila = mysqli_fetch_array($consulta)){
@@ -86,7 +87,7 @@
         <td> <?php echo $fila['Folio_Tic'] ?> </td>
         <td> <?php echo $fila['Placas']  ?> </td>
         <td> <?php echo $fila['Dist_Actual']  ?> </td>
-        <td> <?php echo $fila['Fecha_Hora_Crear']  ?> </td>
+        <td> <?php echo $fila['Fec_Hor_Crea']  ?> </td>
         <td> <?php echo $fila['CostoM3']  ?> </td>
         <td> <?php echo $fila['Importe']  ?> </td>
         <td> <?php echo $fila['Capacidad']  ?> </td>
@@ -104,14 +105,15 @@
     </div>
     </div>
     <a href="" class="btn btn-primary btn-lg btn-block"  data-toggle="modal" data-target="#User_tick_crear"><i class="fas fa-plus-circle "> Crear Ticket</i></a>
-    <a href="" class="btn btn-danger btn-lg btn-block"  data-toggle="modal" data-target="#Admin_Edit"><i class="fas fa-trash-alt"> Eliminar ticket</i></a>
+    <a href="" class="btn btn-danger btn-lg btn-block"  data-toggle="modal" data-target="#User_tick_drop"><i class="fas fa-trash-alt"> Eliminar ticket</i></a>
 
 
     <!-- Para Identificar a Usuarios que tengan acceso a los tickets:
     NSS y contraseña con la que accedió a la plataforma
     -->
 
-    <div class="modal fade" id="User_tick_crear" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+ <!-- Modal para agregar tickets (Altera los campos vacíos) -->   
+<div class="modal fade" id="User_tick_crear" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -123,6 +125,41 @@
       </div>
 
     <form name="crearTick" action="crearTick.php" method="POST">
+    <div class="modal-body mx-3" >
+        <div class="md-form mb-5">
+          <i class="far fa-id-card prefix grey-text"></i>
+          <input type="text" name="NSS_Tick" class="form-control validate">
+          <label data-error="wrong" data-success="right">NSS Usuario</label>
+        </div>
+        <div class="md-form mb-5">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <input type="password" name="pw" class="form-control validate">
+          <label data-error="wrong" data-success="right">Password User</label>
+        </div>
+    </div>
+    
+    <div class="modal-footer d-flex justify-content-center">
+        <button type="submit"class="btn btn-danger" id="edit_button">Ingresar</button>
+    </div>
+    </div>
+    </form>  
+  </div>
+</div>
+
+
+<!-- Modal de Eliminar tickets -->
+<div class="modal fade" id="User_tick_drop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Identificate</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+    <form name="crearTick" action="dropTicket.php" method="POST">
     <div class="modal-body mx-3" >
         <div class="md-form mb-5">
           <i class="far fa-id-card prefix grey-text"></i>

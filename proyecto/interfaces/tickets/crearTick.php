@@ -11,8 +11,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
     <title>Creando Ticket</title>
     <link rel="stylesheet" href="../../styles/jquery.datetimepicker.min.css">
-    <script type="text/javascript" src="../../scripts/jquery.js"></script>
-    <script type="text/javascript" src="../../scripts/jquery.datetimepicker.full.js"></script>
+    <script type="text/javascript" src="../../scripts/Tickets/jquery.js"></script>
+    <script type="text/javascript" src="../../scripts/Tickets/jquery.datetimepicker.full.js"></script>
     <script type="text/javascript" src="validar.js"></script>
 
 
@@ -29,8 +29,8 @@ $pw= $_POST["pw"];
 $nssrepetido=false;
 $nssrepetido2=false;
 
-$consulta = mysqli_query($conexion,"SELECT UserID FROM user_ticket");
-$nssrepetido=false;
+$consulta = mysqli_query($conexion,"SELECT * FROM user_ticket");
+
 while($fila = mysqli_fetch_array($consulta)){
  if($NSS_Tick ==  $fila['UserID']){
     $nssrepetido=true;                              //El NSS del usuario tiene acceso a los tickets 
@@ -60,6 +60,14 @@ if( $nssrepetido &&  $nssrepetido2){                 //NSS y Contra correctos
         </h5>
         <div class="card-body px-lg-5">
             <form name="formul_ticket" class="text-center" action="creando_tick.php" method="POST">
+                <div class="md-form mb-2">
+                <label data-error="wrong" data-success="right"> Num. de Folio</label>
+                    <?php
+                        echo '<input type="text" name="id_" disabled=disabled class="form-control  value="'.$fila['TicketID'].'" placeholder="'.$fila['TicketID'].'">';
+                        echo '<input type="text" value="'.$fila['TicketID'].'" name="Folio" hidden>';
+                    ?>
+                </div>
+
                 <div class="md-form mb-2">
                     <input id="datetime" class="form-control"name="fecha_hora" placeholder="Fecha y hora">
                 </div>

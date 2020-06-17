@@ -16,39 +16,66 @@
 <body style="background: linear-gradient(to right, #34495e, #ebedef);">
 <?php 
     include ('../../server/conexion.php');
+    $Folio= $_POST["Folio"];
+
     $conexion=conectar(); 
     $fecha= $_POST["fecha_hora"];
     $Banco_KM= $_POST["banco_km"];
     $Dist_Actual= $_POST["distancia"];
     $Placas=$_POST["Placas"];
 
+    $M3;
+    $CostoIni;
+    $Costo_Subs;
+
     $consulta = mysqli_query($conexion,"SELECT * FROM camiones");
     $nssrepetido=false;
-    $fila;
     while($fila = mysqli_fetch_array($consulta)){
-        if($fila["Placas"] == $Placas){
+        if($fila["Placa"] == $Placas){
+            $M3= $fila["Capacidad"];
+            $CostoIni= $fila["Costo_Ini"];     //Costo 1 KM
+            $Costo_Subs= $fila["Costo_KM"];    //Costo subs
             $nssrepetido=true;
             break;
         }
       }
      
     if($nssrepetido){
-        //1 km + (Dist_Km -1 )* subsecuente
-        $prim_km= 33;
         
-        $m3 = mysqli_query($conexion,"SELECT capacidad FROM camiones WHERE Placas= $Placas");
-        
-        $insert=mysqli_query($conexion,"INSERT INTO tickets (Fecha_Hora_Crear, Banco_KM, Dist_Actual, Placas, CostoM3, Importe) VALUES 
-        ('$fecha','$Banco_KM','$Dist_Actual', '$Placas', )");            //costoM3 e importe    
+        /*
+        primer km = costo_1_km * (Distancia act -1)
+        subsecuente= Costo_KM_subsecuente * (Banco_KM - Distancia Act)
+        total= primer km + subsecuente
+        */
+
+    $primerKM= $CostoIni * ($Dist_Actual -1); 
+    $subs= $Costo_Subs * ($Banco_KM - $Dist_Actual);
+    $CostoM3 = $primerKM + $subs;
+    $Importe= $CostoM3 * $M3;
+    
+    $sql= "UPDATE tickets SET Fec_Hor_Crea='$fecha', Banco_KM='$Banco_KM', Dist_Actual='$Dist_Actual',
+    CostoM3='$CostoM3', Placas='$Placas', Importe='$Importe'  WHERE Folio_Tic = $Folio";
+    $skl= mysqli_query($conexion,$sql); 
+
+        if($skl){
+            echo "Ticket Registrado exitosamente<br><br>
+            fecha y hora: $fecha <br> Banco_KM: $Banco_KM KM<br> Distancia Act: $Dist_Actual KM
+            <br> Placas: $Placas <br> Capacidad: $M3  M3<br> Costo/M3 : $$CostoM3  <br>
+            Importe: $$Importe ";
+        }
+        else{
+            echo "Error.<br>No se a podido realizar el ticket.";    
+        }
     }
     else{
         echo "Error. No se encontraro las placas ingresadas <br>Verifique sus datos";
+    }
     ?>
     <form action="tickets.php">
         <input type="submit" class="btn btn-sm btn-primary">
     </form>
     <?php
-    } 
+    
     
 ?>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -56,5 +83,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script> 
 
+<?php
+desconectar($conexion);
+?>
 </body>
 </html>
