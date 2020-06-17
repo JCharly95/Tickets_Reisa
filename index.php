@@ -23,7 +23,6 @@
         <div class="contenedor-form sombra-dark">
             <h1>Iniciar Sesión</h1>
             <div id="mensaje error">
-
             </div>
             <form id="autorizacion" action="" method="post">
                 <div class="campo-form">
