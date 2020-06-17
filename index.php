@@ -3,7 +3,7 @@
     require('server/conexion.php');
     $con=conectar();
 
-    $sql='Select Nombre,Correo,Contra,Sta_User from usuarios;';
+    $sql='Select Nombre,Correo,Contra,Status from usuarios;';
     if($res=$con->query($sql)){
         //Obtener un array asociativo
         $datos=array();
@@ -25,7 +25,7 @@
             <div id="mensaje error">
 
             </div>
-            <form id="autorizacion" action="server/login.php" method="post">
+            <form id="autorizacion" action="" method="post">
                 <div class="campo-form">
                     <label >Email</label>
                     <input type="email" id="email" name="email" placeholder="Tu email"/>
@@ -48,6 +48,6 @@
             </div>
         </div>
     </div> 
-    <script src="scripts/Autorizaciones/logIn.js"></script>
+    <script src="scripts/logIn.js"></script>
 </body>
 </html>

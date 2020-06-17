@@ -1,6 +1,7 @@
 <?php
     session_start();
     require('conexion.php');
+    $con=conectar();
 
     $nombre='';
     $correo=$_POST['email'];
@@ -14,6 +15,8 @@
             $nombre=$fila['Nombre'];
         }
     }
+
+    desconectar($con);
 
     switch ($Sta_User){
         case 0:
