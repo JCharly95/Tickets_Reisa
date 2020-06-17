@@ -29,6 +29,7 @@ addEventListener('submit', function(e){
     const email=document.getElementById('email').value;
     //Bandera de errores en la validacion
     var errEma=false;
+    var errTip=false;
     //Bandera de busqueda de usuario
     var busU=false;
     var sta=0;
@@ -57,16 +58,20 @@ addEventListener('submit', function(e){
             //Valores de Sta_User: 0=Usuario Inactivo, 1=Usuario en Proceso, 2=Usuario Activo
             if(busU==true){
                 sta=usuarios[contReg].Sta_User;
-                switch (sta){
-                    case 0:
-                        alert('El usuario que desea recuperar fue dado de baja en el sistema.');
-                        break;
-                    case 1:
-                        alert('El usuario que desea recuperar esta en proceso de ser activado, favor de contactar con los administradores para mas informacion');
-                        break;
-                    case 2:
-                        alert('Bienvenido '+usuarios[contReg].Nombre);
-                        break;
+                if(sta==0){
+                    alert('El usuario con el que desea ingresar fue dado de baja en el sistema.');
+                    errTip=true;
+                }
+                else{
+                    if(sta==1){
+                        alert('El usuario con el que desea ingresar esta en proceso de ser activado, favor de contactar con los administradores para mas informacion');
+                        errTip=true;
+                    }
+                    else{
+                        if(sta==2){
+                            alert('Se encontro el usuario con el nombre: '+usuarios[contReg].Nombre);
+                        }
+                    }
                 }
                 break;
             }
@@ -77,7 +82,7 @@ addEventListener('submit', function(e){
         }
     }
     //Si no se registraron errores, se procede a enviar el formulario. En caso contrario se resetea para que se vuelvan a ingresar datos
-    if(errEma==false){
+    if(errEma==false && errTip==false){
         document.getElementById("autorizacion").submit();
     }
     else{
