@@ -20,22 +20,18 @@
 
     switch ($Sta_User){
         case 0:
-            echo "<script languaje='Javascript'>alert('Tu usuario fue dado de baja en el sistema.');
-            window.location.href='../index.php'</script>";
+            echo "<script languaje='Javascript'>window.location.href='../index.php'</script>";
         break;
         case 1:
-            echo "<script languaje='Javascript'>alert('Tu usuario esta en proceso de ser activado, por favor ponte en contacto con los administradores.');
-            window.location.href='../index.php'</script>";
+            echo "<script languaje='Javascript'>window.location.href='../index.php'</script>";
         break;
         case 2:
             $_SESSION['correo']=$correo;
             $_SESSION['contra']=$contra;
-            echo "<script languaje='Javascript'>alert('Bienvenido ".$nombre."');
-            window.location.href='../interfaces/Inicio/Inicio.php'</script>";
+            echo "window.location.href='../interfaces/Inicio/Inicio.php'</script>";
         break;
         default:
-            echo "<script languaje='Javascript'>alert('El usuario no fue encontrado');
-            window.location.href='../index.php'</script>";
+            echo "window.location.href='../index.php'</script>";
             break;
     }
 ?>
