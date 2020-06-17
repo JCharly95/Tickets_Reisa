@@ -18,7 +18,6 @@
 <head>
     <link rel="stylesheet" href="../styles/general.css">
 </head>
-
 <body>
     <div class="form-usuario">
         <div class="contenedor-form sombra-dark">
@@ -35,12 +34,14 @@
                     <input type="email" id="email" name="email" placeholder="Tu email"/>
                 </div>
                 <div class="campo-form">
-                    <input type="submit" class="btn btn-primario btn-block" value="Recuperar Cuenta"/>
+                    <button type="submit" class="btn btn-primario btn-block">Recuperar Cuenta</button>
+                </div>
+                <div class="campo-form">
+                    <a class="btn btn-info btn-block border" href="../index.php">Regresar a Iniciar Sesión</a>
                 </div>
             </form>
-            <a class="btn btn-info btn-block border" href="../index.php">Regresar a Iniciar Sesión</a>
         </div>
     </div>
-    <script src="../scripts/Autorizaciones/recuperarCuenta.js"></script>
+    <script src="../scripts/recuperarCuenta.js"></script>
 </body>
 </html>
