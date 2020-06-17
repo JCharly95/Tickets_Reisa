@@ -12,27 +12,6 @@ class Camiones{
 
 
 class Validaciones{
-    
-    agregarMain(camiones){
-        const imprimir = document.getElementById('tablas Camiones');
-        const camion = document.createElement('tr');
-        // jamas olvidar que las cadenas de plantillas siempre van en ingles
-        // ${}
-        camion.innerHTML = `
-                <tr> 
-                    <span scope="col"> ${camiones.plc}</span>
-                    <span scope="col"> ${camiones.c}</span>
-                    <span scope="col"> ${camiones.p}</span>
-                    <span scope="col"> ${camiones.s}</span>
-                    <span>
-                        <button type="button" class="estado completo">Editar</button>
-                    </span>
-                </tr>
-        `;            
-        imprimir.appendChild(camion);
-        console.log(camiones.plc, camiones.c, camiones.p, camiones.s);
-    }
-
     mostrarmensaje(a){
         const mensaje = document.getElementById('mensaje error');
         const imprimir = document.createElement('p');
@@ -47,7 +26,7 @@ class Validaciones{
 }
 
 // eventos del dom
-document.getElementById("guardar")
+document.getElementById("crearCamion")
 addEventListener('submit', function (e){
     const placa = document.getElementById('placa').value;
     const capacidad = document.getElementById('capacidad').value;
@@ -57,9 +36,6 @@ addEventListener('submit', function (e){
     
     const camiones = new Camiones(placa, capacidad, primerkm, subkm);
     const validacion = new Validaciones();
-
-    // agregamos valores al php
-    validacion.agregarMain(camiones);
 
     //Banderas de errores en la validacion
     var form=false;
@@ -83,9 +59,14 @@ addEventListener('submit', function (e){
             form = true;
         }
     }
+    
+    // agregamos valores al php
+    validacion.agregarMain(camiones);
+
     //Si no se registraron errores, se procede a enviar el formulario. En caso contrario se resetea para que se vuelvan a ingresar datos
     if(form==false){
-        document.getElementById("guardar").submit();
+        document.getElementById("crearCamion").hide();
+
     }
 
 })

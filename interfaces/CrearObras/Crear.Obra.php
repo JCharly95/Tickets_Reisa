@@ -32,14 +32,14 @@
                     </tr>
                 </thead>
                 <thead>
-                    <form  id="crearobra" action="./Checadores.Obra.php" method="post">
+                    <form  id="crearobra" action="./Crear.ObraBE.php" method="POST">
                         <div class="container-fluid"> 
                             <div class="row ">                                
                                 <div class="col-9">
                                     <h2>Datos de Obra</h2>
                                 </div>
                                 <div class="col-3">
-                                    <input type="submit" class="btn btn-primario btn-block" value="Siguiente"/>
+                                    <input id="" type="submit" class="btn btn-primario btn-block" value="Siguiente"/>
                                 </div>  
                             </div>
                         </div>
@@ -50,17 +50,31 @@
                             <input type="text" class="input-text" id="nomObra" name="nombreobra" placeholder="Nombre de Obra"/>
                         </td>
                         <td>
-                            <input type="number"class="input-text"id="idObra" name="idobra" disabled/>
+                        <?php   
+                                $sql="SELECT Folio_Ob FROM obras WHERE Nombre='' && Fec_Ini='0000-00-00' && Sta_Ob=''";
+                                $query=$con->query($sql);
+
+                                if($query==true)
+                                {
+                                    while($info=mysqli_fetch_array($query))
+                                    {
+                                        echo '<input type="number" class="input-text" id="id" name="id" value="'.$info['Folio_Ob'].'" disabled/>';
+                                    }
+                                }
+                            ?>
+                            
                         </td>
                         <td>
                             <input type="date" id="fechaObra" class="input-text" name="fecha" />
                         </td>
                         <td>
-                            <div class="btn-group" data-toggle="buttons" >
-                                <div class="boton">
-                                    <button id="buttons" type="button" class="desactivado" onclick="estado('desactivado')" >Inactivo</button>
-                                    <button id="buttons" type="button" class="activo" onclick="estado('activado')" name="boton2">Activo</button>
-                                </div>
+                            <div class="form-group" data-toggled="buttons">
+                                <label class="desactivado">
+                                    <input id="inactivo" type="radio" name="form" value="inactivo" autocomplete="off" checked/> Inactivo
+                                </label>
+                                <label class="activo">
+                                    <input id="activo" type="radio" name="form" value="activo" autocomplete="off"/> Activo
+                                </label>
                             </div>
                         </td>
                     </form>
@@ -85,25 +99,8 @@
         
     }
 </script>
-<script  src="../../scripts/Obras//Crear.Obra.js"></script>
+<script  src="../../scripts/Obras/Crear.Obra.js"></script>
 </div>
 </body>
 </html>
 
-<!-- <ul class="nav nav-tabs">
-    <li class="nav-item">
-    <a class="nav-link active" href="./Crear.Obra.php" data-toggle="tab" role="tab"  aria-selected="true">Obra</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link active" href="#">Checadores</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link active" href="#">Materiales</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link active" href="#">Transportistas</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link active" href="#">Camiones</a>
-    </li>
-</ul> -->
