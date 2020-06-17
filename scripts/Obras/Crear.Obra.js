@@ -19,11 +19,10 @@ class Validacion{
 // eventos del dom
 document.getElementById("crearobra")
 addEventListener('submit', function (e){
-    const nomObra = document.getElementById('nomObra').value;
+    const nomObra = document.getElementById('nombre').value;
     const fecha = document.getElementById('fechaObra').value;
 
     const validacion = new Validacion();
-
     //Banderas de errores en la validacion
     var errNom=false;
     var errFe=false;
@@ -40,7 +39,9 @@ addEventListener('submit', function (e){
             validacion.mostrarmensaje('Error: Colocar fecha de inicio.');
             errFe = true;
         }
+
     }
+
 
     //Si no se registraron errores, se procede a enviar el formulario. En caso contrario se resetea para que se vuelvan a ingresar datos
     if(errNom==false && errFe==false ){
