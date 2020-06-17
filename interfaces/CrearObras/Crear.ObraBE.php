@@ -13,7 +13,9 @@
     $sql="UPDATE obras SET Nombre='$nombre', Fec_Ini='$Fec_Ini', Sta_Ob='$status1' WHERE Nombre=''";
 
     if($con->query($sql) == TRUE){
-        echo "<script languaje='Javascript'>window.location.href='Checadores.Obra.php'</script>";
+        echo "<script lenguaje='JavaScript'> 
+        window.location.href=\"Checadores.Obra.php\";
+        </script>";
     }else{
         echo "Error:".$sql."<br>".$con->error;
     }
