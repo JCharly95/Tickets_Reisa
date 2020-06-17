@@ -3,8 +3,9 @@
 
     require('../../server/conexion.php');
     $con=conectar();
-
     // se va al admin
+    //importar el nav de its
+    echo file_get_contents('../Inicio/Barra.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,11 +14,6 @@
 
 </head>
 <body>
-    
-    <!-- importar el nav de its -->
-    <?php 
-        echo file_get_contents('../InicioAdmin/Barra.php');
-    ?>
 
 <div class="app">
     <div class="container border" >
@@ -39,19 +35,18 @@
                                     <h2>Datos de Obra</h2>
                                 </div>
                                 <div class="col-3">
-                                    <input id="" type="submit" class="btn btn-primario btn-block" value="Siguiente"/>
+                                    <button id="" type="submit" class="btn btn-primario btn-block">Siguiente</button>
                                 </div>  
                             </div>
                         </div>
-                            
+                        
                         <div id="mensaje error"></div>
-
                         <td>
                             <input type="text" class="input-text" id="nomObra" name="nombreobra" placeholder="Nombre de Obra"/>
                         </td>
                         <td>
                         <?php   
-                                $sql="SELECT Folio_Ob FROM obras WHERE Nombre='' && Fec_Ini='0000-00-00' && Sta_Ob=''";
+                                $sql="SELECT Folio_Ob FROM obras WHERE Nombre=''";
                                 $query=$con->query($sql);
 
                                 if($query==true)
@@ -82,23 +77,7 @@
             </table>
         </div>
     </div>
-<script>
-    function estado(val){
-        const status=false
-        if(val!='activado'&& val!='desactivado'){
-            estatus = true;
-            alert("Tu obra esta: "+val);
-        }
-        
-        if(status==true){
-            const mensaje = document.getElementById('mensaje error');
-            const imprimir = document.createElement('p');
-            imprimir.innerHTML = '<p class="mensaje error">No has seleccionado nada<p>';
-            mensaje.appendChild(imprimir);
-        }
-        
-    }
-</script>
+    
 <script  src="../../scripts/Obras/Crear.Obra.js"></script>
 </div>
 </body>

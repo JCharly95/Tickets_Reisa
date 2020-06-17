@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="./validar_usuarios.js"></script>
-
+    <script type="text/javascript" src="../../scripts/validar_usuarios.js"></script>
     <title>Editar_Usuario</title>
 </head>
 <body style="background: linear-gradient(to right, #34495e, #ebedef);">
@@ -93,7 +92,5 @@
   }
   desconectar($conexion);
 ?>
-
-
 </body>
 </html>

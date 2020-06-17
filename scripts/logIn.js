@@ -34,6 +34,7 @@ addEventListener('submit', function(e){
     //Banderas de errores en la validacion
     var errEma=false;
     var errCon=false;
+    var errTip=false
     //Banderas de busqueda de usuario
     var busU=false;
     var busC=false;
@@ -70,8 +71,7 @@ addEventListener('submit', function(e){
 
         //Recorrido de busqueda en el arreglo de informacion de la base de datos, para ver si existe el usuario que quiere ingresar
         for (var contReg=0; contReg<usuarios.length; contReg++) {
-            if(usuarios[contReg].Correo==email || usuarios[contReg].Contra==contra)
-            {
+            if(usuarios[contReg].Correo==email || usuarios[contReg].Contra==contra){
                 //Puede ser que la persona que quiera ingresar por pura suerte logre dar con un correo o una contraseña, pero con estas comparaciones se verifica que efectivamente los datos que ingreso existen en la base de datos y no es algo que este ingresando al azar
                 if(usuarios[contReg].Correo==email){
                     busU=true;
@@ -82,18 +82,22 @@ addEventListener('submit', function(e){
                 }
                 //Si ambos datos coinciden se determina el tipo de usuario que desea ingresar y termina el ciclo de busqueda
                 //Valores de Sta_User: 0=Usuario Inactivo, 1=Usuario en Proceso, 2=Usuario Activo
-                if(busU && busC){
+                if(busU==true && busC==true){
                     sta=usuarios[contReg].Sta_User;
-                    switch (sta){
-                        case 0:
-                            alert('El usuario con el que desea ingresar fue dado de baja en el sistema.');
-                            break;
-                        case 1:
+                    if(sta==0){
+                        alert('El usuario con el que desea ingresar fue dado de baja en el sistema.');
+                        errTip=true;
+                    }
+                    else{
+                        if(sta==1){
                             alert('El usuario con el que desea ingresar esta en proceso de ser activado, favor de contactar con los administradores para mas informacion');
-                            break;
-                        case 2:
-                            alert('Bienvenido '+usuarios[contReg].Nombre);
-                            break;
+                            errTip=true;
+                        }
+                        else{
+                            if(sta==2){
+                                alert('Bienvenido '+usuarios[contReg].Nombre);
+                            }
+                        }
                     }
                     break;
                 }
@@ -106,7 +110,7 @@ addEventListener('submit', function(e){
         }
     }
     //Si no se registraron errores, se procede a enviar el formulario. En caso contrario se resetea para que se vuelvan a ingresar datos
-    if(errCon==false && errEma==false){
+    if(errCon==false && errEma==false && errTip==false){
         document.getElementById("autorizacion").submit();
     }
     else{

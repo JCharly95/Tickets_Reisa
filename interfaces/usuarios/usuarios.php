@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
-    <script type="text/javascript" src="../../scripts/validar_usuarios.js"></script>
+    <script type="text/javascript" src="./validar_usuarios.js"></script>
 </head>
 
 <body style="background: linear-gradient(to right, #34495e, #ebedef);">
@@ -30,10 +30,11 @@
             <div class="collapse navbar-collapse" id="basicExampleNav">
                 <!-- Links -->
                 <ul class="navbar-nav mr-auto">
-                    <a href="../InicioAdmin/Inicio.php" class="btn blue-gradient btn-sm"><i class="fas fa-home mr-1"></i>Inicio </a>
+                    <a href="../Inicio/Inicio.php" class="btn blue-gradient btn-sm"><i class="fas fa-home mr-1"></i>Inicio </a>
                     <a href="../CrearObras/Obras.php" class="btn blue-gradient btn-sm"><i class="far fa-building mr-1"> </i>Obras</a>
-                    <a href="" class="btn blue-gradient btn-sm"><i class="fas fa-users mr-1"> </i>Usuarios </a>
+                    <a href="" class="btn blue-gradient btn-sm"><i class="far fa-bookmark mr-1"> </i>Reportes </a>
                     <a href="../tickets/tickets.php" class="btn blue-gradient btn-sm"><i class="fas fa-ticket-alt mr-1"> </i>Tickets </a>
+                    <a href="" class="btn blue-gradient btn-sm"><i class="fas fa-users mr-1"> </i>Usuarios </a>
                 </ul>
                 <!-- Links -->
                 <div class="md-form my-0">

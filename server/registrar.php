@@ -19,7 +19,7 @@
         if($buscarUser>0){
             echo '<script>alert("El usuario que deseas registrar ya existe en el sistema")</script>';
             desconectar($con);
-            header('../index.php');
+            header('/Tickets_Reisa/index.php');
         }
         else{
             //Registramos al usuario en la base de datos
@@ -27,7 +27,7 @@
             $res=$con->query($sql);
             echo '<script>alert("El usuario fue registrado en el sistema y esta en proceso de ser activado.")</script>';
             desconectar($con);
-            header('../index.php');
+            header('/Tickets_Reisa/index.php');
         }
     }
 ?>
