@@ -3,16 +3,21 @@
 
     require('../../server/conexion.php');
     $con=conectar();
+
     // se va al admin
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <link rel="stylesheet" href="../../styles/general.css">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark primary-color">
         <a class="navbar-brand" href="#"></a>
+
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -26,6 +31,8 @@
                 <!-- HAY QUE COLOCARLO DIRECTO AL ARCHIVO  -->
                 <a href="../usuarios/usuarios.php" class="btn blue-gradient btn-sm"><i class="fas fa-users mr-1"> </i>Usuarios </a>
                 <a href="../tickets/tickets.php" class="btn blue-gradient btn-sm"><i class="fas fa-ticket-alt mr-1"> </i>Tickets </a>
+
+
             </ul>
             <!-- Links -->
             <div class="md-form my-0">
@@ -34,7 +41,12 @@
                     <a href="../../index.php" class="btn blue-gradient btn-sm"><i class="fas fa-sign-out-alt mr-2 "></i>Salir</a>
                 </ul>
             </div>
+
         </div>
     </nav>
+
+
+
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,41 +13,46 @@
     <link rel="stylesheet" href="../../styles/jquery.datetimepicker.min.css">
     <script type="text/javascript" src="../../scripts/Tickets/jquery.js"></script>
     <script type="text/javascript" src="../../scripts/Tickets/jquery.datetimepicker.full.js"></script>
-    <script type="text/javascript" src="../../scripts/validar.js"></script>
+    <script type="text/javascript" src="validar.js"></script>
+
+
+
 </head>
+
 <body style="background: linear-gradient(to right, #34495e, #ebedef);">
-<?php
-    include ('../../server/conexion.php');
-    $conexion=conectar();
-    $NSS_Tick= $_POST["NSS_Tick"];
-    $pw= $_POST["pw"];
-    $nssrepetido=false;
-    $nssrepetido2=false;
 
-    $consulta = mysqli_query($conexion,"SELECT * FROM user_ticket");
+    <?php
+include ('../../server/conexion.php');
+$conexion=conectar();
+$NSS_Tick= $_POST["NSS_Tick"];
+$pw= $_POST["pw"];
+$nssrepetido=false;
+$nssrepetido2=false;
 
-    while($fila = mysqli_fetch_array($consulta)){
-        if($NSS_Tick ==  $fila['UserID']){
-            $nssrepetido=true;                              //El NSS del usuario tiene acceso a los tickets 
-            break;
-        }
+$consulta = mysqli_query($conexion,"SELECT * FROM user_ticket");
+
+while($fila = mysqli_fetch_array($consulta)){
+ if($NSS_Tick ==  $fila['UserID']){
+    $nssrepetido=true;                              //El NSS del usuario tiene acceso a los tickets 
+    break;
+ }
+}
+
+if($nssrepetido){
+    $consulta2 = mysqli_query($conexion,"SELECT * FROM usuarios WHERE NSS= $NSS_Tick");
+    $n=mysqli_fetch_array($consulta2);
+    if($n["Contra"] == $pw ){ 
+        $nssrepetido2=true;              //La contra del NSS ingresado es correcto
     }
-
-    if($nssrepetido){
-        $consulta2 = mysqli_query($conexion,"SELECT * FROM usuarios WHERE NSS= $NSS_Tick");
-        $n=mysqli_fetch_array($consulta2);
-        if($n["Contra"] == $pw ){ 
-            $nssrepetido2=true;              //La contra del NSS ingresado es correcto
-        }
-        else{
-            $nssrepetido2=false; 
-        }
-        /*Checa la Contraseña de la tabla usuarios en la fila
-        donde los NSS sean iguales
-        */
+    else{
+        $nssrepetido2=false; 
     }
+    /*Checa la Contraseña de la tabla usuarios en la fila
+    donde los NSS sean iguales
+    */
+}
 
-    if( $nssrepetido &&  $nssrepetido2){                 //NSS y Contra correctos
+if( $nssrepetido &&  $nssrepetido2){                 //NSS y Contra correctos
 ?>
     <div class="mx-auto card" style="width: 30%; background-color:#b3cbb1">
         <h5 class="card-header info-color white-text text-center py-10 bg-primary">
@@ -61,46 +67,60 @@
                         echo '<input type="text" value="'.$fila['TicketID'].'" name="Folio" hidden>';
                     ?>
                 </div>
+
                 <div class="md-form mb-2">
                     <input id="datetime" class="form-control"name="fecha_hora" placeholder="Fecha y hora">
                 </div>
                 <script>
                     $("#datetime").datetimepicker();
                 </script>
+
                 <div class="md-form mb-2">
                     <input type="number" name="banco_km" class="form-control validate">
                     <label data-error="wrong" data-success="right">Banco_KM</label>
                 </div>
+
                 <div class="md-form mb-2">
                     <input type="number" name="distancia" class="form-control validate">
                     <label data-error="wrong" data-success="right">Distancia Actual</label>
                 </div>
+
                 <div class="md-form mb-2">
                     <input class="form-control" type="text" name="Placas">
                     <label data-error="wrong" data-success="right">Placas</label>
                 </div>
+
                 <button class="btn btn-info btn-block my-4" id="btn" type="button">Crear Ticket</button>
                 </form>
             </div>
         </div>
+
+
+
+
+
         <?php
-    }
-    else{
-        echo "El NSS ingresado no tiene acceso a tickets o sus datos son incorrectos
-        <br>Verifique sus datos";
-        ?>
-        <form action="tickets.php">
-            <input type="submit" class="btn btn-primary btn-sm" value="aceptar">
-        </form>
-        <?php
-    }
+}
+else{
+    echo "El NSS ingresado no tiene acceso a tickets o sus datos son incorrectos
+    <br>Verifique sus datos";
+    ?>
+            <form action="Tickets.php">
+                <input type="submit" class="btn btn-primary btn-sm" value="aceptar">
+            </form>
+            <?php
+}
 ?>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script> 
+
+
+            
 <?php
-    desconectar($conexion);
+desconectar($conexion);
 ?>
 </body>
+
 </html>

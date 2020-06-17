@@ -23,8 +23,10 @@
         break;
     }
   }
+
   if($nssrepetido){
 ?>
+
 <div class="mx-auto card" style="width: 30%; background-color: rgba(86,61,124,.15);">
   <h5 class="card-header info-color white-text text-center py-10 bg-primary">
       <strong>Configuración del ADMIN</strong>

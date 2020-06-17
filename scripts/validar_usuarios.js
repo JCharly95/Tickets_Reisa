@@ -60,6 +60,7 @@ function validacion() {
     }
 }
 
+
 window.onload = function() {
     document.getElementById("boton").onclick = this.validacion;
 

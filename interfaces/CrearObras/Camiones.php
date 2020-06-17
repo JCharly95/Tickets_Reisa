@@ -6,8 +6,6 @@
 
     $material=$_POST['material'];
     // se va al admin
-    //importar el nav de its
-    echo file_get_contents('../Inicio/Barra.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,6 +13,12 @@
     <link rel="stylesheet" href="../../styles/general.css">
 </head>
 <body>
+
+    <!-- importar el nav de its -->
+    <?php 
+        echo file_get_contents('../InicioAdmin/Barra.php');
+    ?>
+
 <div class="app">
     <div class="container border" >
         <div class="tabla">
@@ -22,7 +26,7 @@
             <div class="row ">
                 <div class="col-3"> 
                     <!-- boton -->
-                    <button type="button" class="btn btn-success btn-secundario" data-toggle="modal" data-target="#myModal">
+                    <button type="button" class="btn btn-success btn-secundario" data-toggle="modal" data-target="#crearCamion">
                         Agregar
                     </button>
                 </div>
@@ -31,7 +35,7 @@
                 </div>
                 <!-- submit -->
                 <div class="col-3">
-                    <button type="submit" class="btn btn-primario btn-block" value="">Siguiente</button>
+                    <input type="submit" class="btn btn-primario btn-block" value="Siguiente"/>
                 </div>
             </div>
         </form>
@@ -49,25 +53,28 @@
                 <?php
                     include 'Camiones.Be.Lista.php';
                 ?> 
-            </thead>
+            </thead>    
             </table>
         </div>
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
+    <!-- desaparecer contenedor -->
+    <div class="modal fade" id="crearCamion" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
+        <!-- Ventana de dialogo -->
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <!-- clase -->
             <div class="modal-content">
-
+                <!-- modal header-->
                 <div class="modal-header">
-                    <h1 class="modal-title" id="myModalLabel">Modal title</h1>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 id="tituloVentana" class="modal-title">Agregar Camión</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-
+                <!-- cuerpo -->
                 <div class="modal-body">
-
-                <form for="guardar" id="crearCamion" action="./Camiones.BE.php" method="POST">
+                    <form for="guardar" id="crearCamion" action="./Camiones.BE.php" method="POST">
                         <div id="mensaje error"></div>
                         <div class="container-fluid">
                             <div class="row">
@@ -75,6 +82,7 @@
                                     <div class="form-group ">
                                         <label for="placa" class="contenedor-input">Placa:</label>
                                         <input type="text" class="form-control input-text border" id="placa" name="placa"  placeholder="UUU-777-A">
+                                        
                                     </div>
                                     <div class="form-group">
                                         <label for="capacidad" class="contenedor-input">Capcaidad (m3):</label>
@@ -91,9 +99,9 @@
                                         <input type="number" class="form-control input-text border" id="subkm"  name="subKM" placeholder="&#36;" min="0" max="1000">
                                     </div>
                                     <div class="form-group">
-                                        <?php
+                                        <?php   
                                             $sql="SELECT * FROM materiales WHERE ID_Mat='$material'";
-                                            $query=$con->query($sql);
+                                            $query=$con->query($sql);   
                                             if($query==true)
                                             {
                                                 $info=mysqli_fetch_array($query);
@@ -103,30 +111,24 @@
                                             }else{
                                             echo "Error:".$sql."<br>".$con->error;
                                             }
-                                        ?>
+                                        ?> 
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
                 </div>
-
+                <!-- pie de pagina -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger btn-secundario " data-dismiss="modal">Close</button>
-                    <button type="submit"  class="btn btn-primary btn-secundario">Save changes</button>
+                    <button class="btn btn-danger btn-secundario " type="button" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary btn-secundario" id="crearCamion">Guardar</button>
                 </div>
+            </div>
+        </div>
+    </div>
 
-            </form> 
-
-                </div>
-            </div><!-- modal content -->
-        </div><!-- modal dialog -->
-    </div><!-- modal fade -->
-<!-- Cierra Modal -->
 
 
 <script src="../../scripts/Obras/CrearCamiones.js"></script>
-
 </body>
 </html>
-
-

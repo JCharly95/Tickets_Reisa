@@ -28,7 +28,7 @@ addEventListener('submit', function (e){
     var errFe=false;
     e.preventDefault();
 
-    console.log(nombre);
+    console.log(estado.value);
     
     if(nomObra==''||fecha==''){
         if(nomObra==''){

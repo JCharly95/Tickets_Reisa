@@ -65,7 +65,7 @@ addEventListener('submit', function (e){
 
     //Si no se registraron errores, se procede a enviar el formulario. En caso contrario se resetea para que se vuelvan a ingresar datos
     if(form==false){
-        document.getElementById("crearCamion").submit();
+        document.getElementById("crearCamion").hide();
 
     }
 
