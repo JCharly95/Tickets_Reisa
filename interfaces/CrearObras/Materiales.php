@@ -5,6 +5,8 @@
     $con=conectar();
 
     // se va al admin
+    //importar el nav de its
+    echo file_get_contents('../Inicio/Barra.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,11 +14,6 @@
     <link rel="stylesheet" href="../../styles/general.css">
 </head>
 <body>
-    <!-- importar el nav de its -->
-    <?php 
-      echo file_get_contents('../InicioAdmin/Barra.php');
-    ?>
-
     <div class="app">
     <div class="container border" >
         <div class="table-responsive">
@@ -53,18 +50,16 @@
 
                                     if($query==true){
                                         echo '<option value="">Seleccione </option>';
-                                        while($info=mysqli_fetch_array($query))
-                                        {
-                                        
+                                        while($info=mysqli_fetch_array($query)){
                                             echo '<option value="'.$info['ID_Mat'].'" name="material" >'.$info['Descripcion'].' </option>';
                                         }
                                     }
                                 ?>
                                 </select>
-                              </div>
+                            </div>
                         </td>
                     </form>
-                </thead>    
+                </thead>
             </table>
         </div>
     </div>

@@ -5,6 +5,8 @@
     $con=conectar();
 
     // se va al admin
+    //importar el nav de its
+    echo file_get_contents('../Inicio/Barra.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,22 +14,11 @@
     <link rel="stylesheet" href="../../styles/general.css">
 </head>
 <body>
-    <!-- importar el nav de its -->
-        <?php 
-            echo file_get_contents('../InicioAdmin/Barra.php');
-        ?>
-
     <div class="app">
-        <div class="container border" >
-        
+        <div class="container border">
             <div class="row">
                 <form class="col-4" action="./ObrasBE.php" method="post">
-                    <input
-                        name="crearobra"
-                        type="submit"
-                        class="btn btn-primario btn-block"
-                        value="Crear Obra"
-                    />
+                    <input name="crearobra" type="submit" class="btn btn-primario btn-block" value="Crear Obra"/>
                 </form>
             </div>
             <div class="table-responsive">
@@ -42,29 +33,27 @@
                         </tr>
                     </thead>
                     <thead>
-                        <?php   
-                                $sql="SELECT * FROM obras ";
-                                $query=$con->query($sql);
+                        <?php
+                            $sql="SELECT * FROM obras ";
+                            $query=$con->query($sql);
 
-                                if($query==true)
+                            if($query==true)
+                            {
+                                while($info=mysqli_fetch_array($query))
                                 {
-                                    while($info=mysqli_fetch_array($query))
-                                    {
-                                        echo'<tr>';
-                                        echo'<td ><span class="resultado">'.$info['Folio_Ob'].'</span></td>';
-                                        echo'<td ><span class="resultado">'.$info['Nombre'].'</span></td>';
-                                        echo '<td ><input class="resultado" type="date" name="fechaobra" value="'.$info['Fec_Ini'].'" disabled/></td>';
-                                        echo '<td ><span class="resultado">'.$info['Sta_Ob'].'</span></td>';
-                                        echo'</tr>';
-                                    }
+                                    echo'<tr>';
+                                    echo'<td ><span class="resultado">'.$info['Folio_Ob'].'</span></td>';
+                                    echo'<td ><span class="resultado">'.$info['Nombre'].'</span></td>';
+                                    echo '<td ><input class="resultado" type="date" name="fechaobra" value="'.$info['Fec_Ini'].'" disabled/></td>';
+                                    echo '<td ><span class="resultado">'.$info['Sta_Ob'].'</span></td>';
+                                    echo'</tr>';
                                 }
+                            }
                         ?>
                     </thead>
-                    
                 </table>
             </div>
         </div>
     </div>
-
 </body>
 </html>

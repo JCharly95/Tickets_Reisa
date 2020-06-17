@@ -2,8 +2,6 @@
     require('../../server/conexion.php');
 
     $con=conectar();
-
-    
     // asigna valor de las variables
     $Folio_Ob=$_POST['id'];
     $nombre=$_POST['nombreobra'];
@@ -13,13 +11,9 @@
     $sql="UPDATE obras SET Nombre='$nombre', Fec_Ini='$Fec_Ini', Sta_Ob='$status1' WHERE Nombre=''";
 
     if($con->query($sql) == TRUE){
-        echo "<script lenguaje='JavaScript'> 
-        window.location.href=\"Checadores.Obra.php\";
-        </script>";
+        header("Checadores.Obra.php");
     }else{
         echo "Error:".$sql."<br>".$con->error;
     }
-    $con->close();
-
-    
+    desconectar($con);
 ?>

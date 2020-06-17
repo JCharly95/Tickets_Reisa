@@ -6,6 +6,8 @@
 
     $material=$_POST['material'];
     // se va al admin
+    //importar el nav de its
+    echo file_get_contents('../Inicio/Barra.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,12 +15,6 @@
     <link rel="stylesheet" href="../../styles/general.css">
 </head>
 <body>
-
-    <!-- importar el nav de its -->
-    <?php 
-        echo file_get_contents('../InicioAdmin/Barra.php');
-    ?>
-
 <div class="app">
     <div class="container border" >
         <div class="tabla">
@@ -53,12 +49,11 @@
                 <?php
                     include 'Camiones.Be.Lista.php';
                 ?> 
-            </thead>    
+            </thead>
             </table>
         </div>
     </div>
 </div>
-
     <!-- desaparecer contenedor -->
     <div class="modal fade" id="crearCamion" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
         <!-- Ventana de dialogo -->
@@ -82,7 +77,6 @@
                                     <div class="form-group ">
                                         <label for="placa" class="contenedor-input">Placa:</label>
                                         <input type="text" class="form-control input-text border" id="placa" name="placa"  placeholder="UUU-777-A">
-                                        
                                     </div>
                                     <div class="form-group">
                                         <label for="capacidad" class="contenedor-input">Capcaidad (m3):</label>
@@ -99,9 +93,9 @@
                                         <input type="number" class="form-control input-text border" id="subkm"  name="subKM" placeholder="&#36;" min="0" max="1000">
                                     </div>
                                     <div class="form-group">
-                                        <?php   
+                                        <?php
                                             $sql="SELECT * FROM materiales WHERE ID_Mat='$material'";
-                                            $query=$con->query($sql);   
+                                            $query=$con->query($sql);
                                             if($query==true)
                                             {
                                                 $info=mysqli_fetch_array($query);
@@ -111,8 +105,7 @@
                                             }else{
                                             echo "Error:".$sql."<br>".$con->error;
                                             }
-                                        ?> 
-                                        
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -126,9 +119,6 @@
             </div>
         </div>
     </div>
-
-
-
 <script src="../../scripts/Obras/CrearCamiones.js"></script>
 </body>
 </html>

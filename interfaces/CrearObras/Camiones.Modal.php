@@ -1,4 +1,3 @@
-
  <!-- Modal -->
  <div class="modal fade" id="crearCamion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -12,7 +11,6 @@
         </div>
         <!-- cuerpo -->
         <div class="modal-body">
-
                 <!-- botones -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger btn-secundario " data-dismiss="modal">Cerrar</button>

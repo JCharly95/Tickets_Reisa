@@ -46,29 +46,28 @@
                                     if($query==true)
                                     {
                                         echo '<option value="" id="nombrePro">Seleccione </option>';
-                                        while($info=mysqli_fetch_array($query))
-                                        {
+                                        while($info=mysqli_fetch_array($query)){
                                             echo '<option value="'.$info['NSS'].'" id="nombrePro" name="nombrePro" >'.$info['Nombre'].' </option>';
                                         }
                                     }
                                 ?>
-                                </select>                                
+                                </select>
                             </div>
                         </td>
                         <td>
-                        <?php   
-                                $sql="SELECT COUNT(Placa) AS cantidad FROM camiones ";
-                                $query=$con->query($sql);
+                        <?php
+                            $sql="SELECT COUNT(Placa) AS cantidad FROM camiones ";
+                            $query=$con->query($sql);
 
-                                if($query==true)
+                            if($query==true)
+                            {
+                                while($info=mysqli_fetch_array($query))
                                 {
-                                    while($info=mysqli_fetch_array($query))
-                                    {
-                                        $variable = $info['0'];
-                                        echo '<input type="number" class="input-text" id="placas" name="placas" value="'.$variable.'" disabled/>';
-                                    }
+                                    $variable = $info['0'];
+                                    echo '<input type="number" class="input-text" id="placas" name="placas" value="'.$variable.'" disabled/>';
                                 }
-                            ?>
+                            }
+                        ?>
                         </td>
                     </form>
                 </thead>

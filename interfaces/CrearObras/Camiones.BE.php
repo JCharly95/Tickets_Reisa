@@ -12,14 +12,9 @@
     $sql="INSERT INTO camiones(Placa, Capacidad, Costo_Ini, Costo_KM, Material) VALUES ('$placa','$capacidad', '$primerkm','$subkm','$material')";
     
     if($con->query($sql) == TRUE){
-        echo "<script lenguaje='JavaScript'>
-        window.location.href=\"Camiones.php\";
-        </script>";
+        header("Camiones.php");
     }else{
         echo "Error:".$sql."<br>".$con->error;
     }
-    $conn->close();
-
-
-
+    desconectar($con);
 ?>
