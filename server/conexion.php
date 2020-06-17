@@ -1,6 +1,6 @@
 <?php
     function conectar(){
-        $conn=new mysqli('localhost','root','','reisa')or die('No ha sido posible conectarse debido a: '.mysql_error());
+        $conn=new mysqli($_SERVER['SERVER_NAME'],'root','','reisa')or die('No ha sido posible conectarse debido a: '.mysql_error());
         return $conn;
     }
     
