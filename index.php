@@ -1,10 +1,9 @@
 <?php 
     echo file_get_contents('Bootstrap/htmlBootstrap.html');
-
-    require('./server/conexion.php');
+    require('server/conexion.php');
     $con=conectar();
 
-    $sql='Select Correo,Contra,Status from usuarios;';
+    $sql='Select Nombre,Correo,Contra,Status from usuarios;';
     if($res=$con->query($sql)){
         //Obtener un array asociativo
         $datos=array();
@@ -24,6 +23,7 @@
         <div class="contenedor-form sombra-dark">
             <h1>Iniciar Sesión</h1>
             <div id="mensaje error">
+
             </div>
             <form id="autorizacion" action="" method="post">
                 <div class="campo-form">
@@ -40,15 +40,14 @@
             </form>
             <div class="campo-form">
                 <div class="col-6">
-                    <a class="btn btn-warning btn-block" href="interfaces/recuperarCuenta.php">Recuperar Cuenta</a>
+                    <a class="btn btn-warning btn-block border" href="interfaces/recuperarCuenta.php">Recuperar Cuenta</a>
                 </div>
                 <div class="col-6">
-                    <a class="btn btn-info btn-block " href="interfaces/registro.php">Registrarse</a>
+                    <a class="btn btn-info btn-block border" href="interfaces/registro.php">Registrarse</a>
                 </div>
             </div>
         </div>
     </div> 
-    <script src="./scripts/Autorizaciones/logIn.js"></script>
-
+    <script src="scripts/logIn.js"></script>
 </body>
 </html>

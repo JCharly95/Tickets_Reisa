@@ -21,7 +21,7 @@
         <div class="container border" >
         
             <div class="row">
-                <form class="col-4" action="./Crear.Obra.php" method="post">
+                <form class="col-4" action="./ObrasBE.php" method="post">
                     <input
                         name="crearobra"
                         type="submit"
@@ -34,26 +34,31 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Nombre Obra</th>
                             <th>Id Proyecto</th>
+                            <th>Nombre Obra</th>
                             <th>Fecha de Inicio</th>
                             <th>Estatus</th>
-                            <th>Opcion</th>
+                            <!-- <th>Opcion</th> -->
                         </tr>
                     </thead>
                     <thead>
-                        <tr>
-                            <td ><span class="resultado">Encadenar texto</span></td>
-                            <td ><span class="resultado">Encadenar texto</span></td>
-                            <td ><input class="resultado" type="date" name="fechaobra" disabled/></td>
-                            <td >
-                                <span class="resultado correcto">Activo</span>
-                            </td>
-                            <td>
-                                <button type="button" class="estado completo">Editar</button>
-                            </td>
-                        </tr>
-                        
+                        <?php   
+                                $sql="SELECT * FROM obras ";
+                                $query=$con->query($sql);
+
+                                if($query==true)
+                                {
+                                    while($info=mysqli_fetch_array($query))
+                                    {
+                                        echo'<tr>';
+                                        echo'<td ><span class="resultado">'.$info['Folio_Ob'].'</span></td>';
+                                        echo'<td ><span class="resultado">'.$info['Nombre'].'</span></td>';
+                                        echo '<td ><input class="resultado" type="date" name="fechaobra" value="'.$info['Fec_Ini'].'" disabled/></td>';
+                                        echo '<td ><span class="resultado">'.$info['Sta_Ob'].'</span></td>';
+                                        echo'</tr>';
+                                    }
+                                }
+                        ?>
                     </thead>
                     
                 </table>
