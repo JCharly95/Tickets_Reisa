@@ -28,8 +28,8 @@
                 <a href="./Inicio.php" class="btn blue-gradient btn-sm"><i class="fas fa-home mr-1"></i>Inicio </a>
                 <a href="../CrearObras/Obras.php" class="btn blue-gradient btn-sm"><i class="far fa-building mr-1"> </i>Obras</a>
                 <!-- HAY QUE COLOCARLO DIRECTO AL ARCHIVO  -->
-                <a href="../usuarios/usuarios.php" class="btn blue-gradient btn-sm"><i class="fas fa-users mr-1"> </i>Usuarios </a>
                 <a href="../tickets/tickets.php" class="btn blue-gradient btn-sm"><i class="fas fa-ticket-alt mr-1"> </i>Tickets </a>
+                <a href="../usuarios/usuarios.php" class="btn blue-gradient btn-sm"><i class="fas fa-users mr-1"> </i>Usuarios </a>
 
 
             </ul>
