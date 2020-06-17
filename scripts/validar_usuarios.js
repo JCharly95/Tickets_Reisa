@@ -36,9 +36,11 @@ function validacion() {
         }
     }
 
-    if (document.formul.defaultForm_pw.value.length < 8 && cond == true) {
+    var contra = document.formul.defaultForm_pw.value;
+    if (/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/.test(contra) == false && cond == true) {
+
         verificar = false;
-        alert("la contraseña debe contener 8 caracteres mínimo");
+        alert("La contraseña debe tener al menos un dígito, al menos una mayúscula, al menos una minúscula, no puede tener espacios y debe ser de entre 8 a 16 caracteres.");
         document.formul.defaultForm_pw.focus();
         cond = false;
     }
