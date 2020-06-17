@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
-    <script type="text/javascript" src="../../scripts/validar_usuarios.js"></script>
+    <script type="text/javascript" src="./validar_usuarios.js"></script>
     <title>CuentaAdmin</title>
 </head>
 <body style="background: linear-gradient(to right, #34495e, #ebedef);">
@@ -22,7 +22,7 @@
     $nssrepetido=false;
     $fila;
     while($fila = mysqli_fetch_array($consulta)){
-        if($mailAdmin ==  $fila['Correo'] && $pwAdmin == $fila["Contra"] && $fila["Tip_User"]==1) {  //Datos del Admin
+        if($mailAdmin ==  $fila['Correo'] && $pwAdmin == $fila["Contra"] && $fila["Tip_User"]==5 && $fila["Sta_User"] ==2) {  //Datos del Admin
             $nssrepetido=true;
             break;
         }
@@ -60,16 +60,16 @@
             </div>
             <select name="type_user"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
                 <option value="">Puesto de Usuario</option>
-                <option value="1">Admin</option>
-                <option value="2">Checador</option>
-                <option value="3">Ingeniero civil</option>
+                <option value="1">Checador</option>
+                <option value="2">Ingeniero civil</option>
+                <option value="3">Control de obra</option>
                 <option value="4">Transportista</option>
-                <option value="5">Control de obra</option>
+                <option value="5">Admin</option>
             </select>
-            <select name="Sta_User"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
-                <option value="">Sta_User de Usuario</option>
-                <option value="1">Activo</option>
-                <option value="2">En proceso</option>
+            <select name="status"class="mdb-select md-form colorful-select dropdown-primary form-control validate">
+                <option value="">Status de Usuario</option>
+                <option value="2">Activo</option>
+                <option value="1">En proceso</option>
                 <option value="0">Inactivo</option>
             </select>
             <button type="button"class="btn btn-danger form-control" id="boton">Registrar</button>

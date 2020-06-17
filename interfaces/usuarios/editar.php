@@ -8,7 +8,7 @@
 </head>
 <body style="background: linear-gradient(to right, #34495e, #ebedef);">
 <?php
-    include ('../server/conexion.php');
+    include ('../../server/conexion.php');
     $conexion=conectar();
     $id=$_POST["id"];
     $nss =$_POST["defaultForm_NSS"];
@@ -17,7 +17,7 @@
     $correo=$_POST["Correo"];
     $contra=$_POST["defaultForm_pw"];
     $tip_user=$_POST["type_user"];
-    $Sta_User=$_POST["Sta_User"];
+    $status=$_POST["status"];
     /*
     Sólo hay 1 admin registrado en la base de datos
     No puede darse de baja ni cambiar de puesto en estas condiciones.
@@ -33,11 +33,11 @@
     $admi = mysqli_query($conexion,"SELECT * FROM usuarios WHERE NSS=$id");
     $n=mysqli_fetch_array($admi);
     while($fila = mysqli_fetch_array($consulta)){
-        if($fila["Tip_User"]==1){           //Administradores
+        if($fila["Tip_User"]==5){           //Administradores
             $x++;
         }
     }
-    if($x==1 &&  $n["Tip_User"]==1 && $Sta_User !=1){
+    if($x==1 &&  $n["Tip_User"]==5 && $status !=2){
         $verdadero=1;
     }
     else{
@@ -45,7 +45,7 @@
     }
     if($verdadero==2){
         $sql= "UPDATE usuarios SET NSS='$nss', Nombre='$nombre', Fec_Nac='$fec_nac', Correo='$correo',
-        Contra='$contra', Tip_User='$tip_user', Sta_User='$Sta_User' WHERE NSS=$id";
+        Contra='$contra', Tip_User='$tip_user', Sta_User='$status' WHERE NSS=$id";
 
         if($conexion ->query($sql) ==TRUE){
             echo"Usuario actualizado exitosamente";
