@@ -29,7 +29,7 @@
             <div class="campo-form">
                 <p>Teclea el correo que se te activo por el admin</p>
             </div>
-            <form id="autorizacion" action="" method="post">
+            <form id="autorizacion" action="../server/recuperacion.php" method="post">
                 <div class="campo-form">
                     <label>Email</label>
                     <input type="email" id="email" name="email" placeholder="Tu email"/>
