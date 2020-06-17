@@ -3,8 +3,9 @@
 
     require('../../server/conexion.php');
     $con=conectar();
-
     // se va al admin
+    //importar el nav de its
+    echo file_get_contents('../Inicio/Barra.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,11 +13,6 @@
     <link rel="stylesheet" href="../../styles/general.css">
 </head>
 <body>
-    <!-- importar el nav de its -->
-    <?php 
-      echo file_get_contents('../InicioAdmin/Barra.php');
-    ?>
-
     <div class="app">
     <div class="container border" >
         <div class="table-responsive">
@@ -27,10 +23,9 @@
                     </tr>
                 </thead>
                 <thead>
-                    <form  id="seleccionar" action="./Propietario.php" method="post">
+                    <form  id="seleccionar" action="Propietario.php" method="post">
                         <div class="container-fluid"> 
                           <div class="row ">
-                            
                             <div class="col-9">
                               <h2>Materiales de obra</h2>
                             </div>  
@@ -42,12 +37,9 @@
                         <div id="mensaje error"></div>
                         <td>
                             <div class="input-group ">
-                                <!-- <div class="campo-form">
-                                  <label class="input-group-text" for="checador">Checador</label>
-                                </div> -->
                                 <select id="material" class="custom-select material" >
                                   <!-- usar la tabla que creo itz de crear usuarios -->
-                                    <option value="" selected>Selecciona </option>
+                                  <option value="" selected>Selecciona </option>
                                   <option value="Aproche" id="1">Aproche</option>
                                   <option value="Arena" id="2">Arena</option>
                                   <option value="Base" id="3">Base</option>

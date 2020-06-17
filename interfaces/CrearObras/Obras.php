@@ -3,8 +3,9 @@
 
     require('../../server/conexion.php');
     $con=conectar();
-
     // se va al admin
+    //importar el nav de its
+    echo file_get_contents('../Inicio/Barra.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,18 +13,8 @@
     <link rel="stylesheet" href="../../styles/general.css">
 </head>
 <body>
-    <!-- importar el nav de its -->
-        <?php 
-            echo file_get_contents('../InicioAdmin/Barra.php');
-            /*
-            Se tiene que colocar el código. De lo contrario, los direccionamientos son incorrectos
-            Al direccionar de Obras a Inicio, un ejemplo...
-            */
-        ?>
-
     <div class="app">
         <div class="container border" >
-        
             <div class="row">
                 <form class="col-4" action="./Crear.Obra.php" method="post">
                     <input
@@ -57,13 +48,10 @@
                                 <button type="button" class="estado completo">Editar</button>
                             </td>
                         </tr>
-                        
                     </thead>
-                    
                 </table>
             </div>
         </div>
     </div>
-
 </body>
 </html>

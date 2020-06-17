@@ -18,7 +18,6 @@
 <head>
     <link rel="stylesheet" href="../styles/general.css">
 </head>
-
 <body>
     <div class="form-usuario">
         <div class="contenedor-form sombra-dark">

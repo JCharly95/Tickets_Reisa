@@ -3,8 +3,9 @@
 
     require('../../server/conexion.php');
     $con=conectar();
-
     // se va al admin
+    //importar el nav de its
+    echo file_get_contents('../Inicio/Barra.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,10 +13,6 @@
     <link rel="stylesheet" href="../../styles/general.css">
 </head>
 <body>
-    <!-- importar el nav de its -->
-    <?php 
-        echo file_get_contents('../InicioAdmin/Barra.php');
-    ?>
     <div class="app">
     <div class="container border" >
         <div class="table-responsive">
@@ -28,7 +25,7 @@
                 <thead>
                     <form  id="propietario" action="./Camiones.php" method="post">
                         <div class="container-fluid"> 
-                            <div class="row ">                            
+                            <div class="row ">
                                 <div class="col-9">
                                     <h2>Propietario de Camiones</h2>
                                 </div>  
@@ -42,7 +39,7 @@
                             <input type="text" class="input-text  " id="nombrePro" name="nombrePro" placeholder="Nombre Propietario"/>
                         </td>
                     </form>
-                </thead>    
+                </thead>
             </table>
         </div>
     </div>

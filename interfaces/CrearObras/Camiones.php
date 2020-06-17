@@ -3,8 +3,9 @@
 
     require('../../server/conexion.php');
     $con=conectar();
-
     // se va al admin
+    //importar el nav de its
+    echo file_get_contents('../Inicio/Barra.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,12 +13,6 @@
     <link rel="stylesheet" href="../../styles/general.css">
 </head>
 <body>
-
-    <!-- importar el nav de its -->
-    <?php 
-        echo file_get_contents('../InicioAdmin/Barra.php');
-    ?>
-
 <div class="app">
     <div class="container border" >
         <div class="tabla">
@@ -28,13 +23,11 @@
                         <th scope="col">Capacidad</th>
                         <th scope="col">Precio Primer Km</th>
                         <th scope="col">Precio Subsecuente Km</th>
-                        
                     </tr>
                 </thead>
                 <thead>
                     <form  id="camiones" action="./Obras.php" method="post">
                         <div class="row ">
-                            
                             <div class="col-3">
                                 <!-- Boton modal -->
                                 <button type="button" class="btn btn-success btn-secundario" data-toggle="modal" data-target="#crearCamion">
@@ -65,7 +58,6 @@
         </div>
     </div>
 </div>
- 
   <!-- Modal -->
   <div class="modal fade" id="crearCamion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -85,7 +77,6 @@
                             <div class="form-group ">
                                 <label for="placa" class="contenedor-input">Placa:</label>
                                 <input type="text" class="form-control input-text border" id="placa"  placeholder="UUU-777-A">
-                                
                             </div>
                             <div class="form-group">
                                 <label for="capacidad" class="contenedor-input">Capcaidad (m3):</label>
@@ -107,13 +98,12 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger btn-secundario " data-dismiss="modal">Cerrar</button>
                     <button type="submit" id="guardar" class="btn btn-primary btn-secundario " >Guardar</button>
-                    </div>
+                </div>
             </form>
         </div>
     </div>
     </div>
 </div>
-
 <script src="../../scripts/Obras/CrearCamiones.js"></script>
 </body>
 </html>

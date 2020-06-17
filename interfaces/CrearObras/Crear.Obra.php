@@ -3,22 +3,16 @@
 
     require('../../server/conexion.php');
     $con=conectar();
-
     // se va al admin
+    //importar el nav de its
+    echo file_get_contents('../Inicio/Barra.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <link rel="stylesheet" href="../../styles/general.css">
-
 </head>
 <body>
-    
-    <!-- importar el nav de its -->
-    <?php 
-        echo file_get_contents('../InicioAdmin/Barra.php');
-    ?>
-
 <div class="app">
     <div class="container border" >
         <div class="table-responsive">
@@ -34,16 +28,15 @@
                 <thead>
                     <form  id="crearobra" action="./Checadores.Obra.php" method="post">
                         <div class="container-fluid"> 
-                            <div class="row ">                                
+                            <div class="row ">
                                 <div class="col-9">
                                     <h2>Datos de Obra</h2>
                                 </div>
                                 <div class="col-3">
                                     <input type="submit" class="btn btn-primario btn-block" value="Siguiente"/>
-                                </div>  
+                                </div>
                             </div>
                         </div>
-                            
                         <div id="mensaje error"></div>
 
                         <td>
@@ -64,7 +57,7 @@
                             </div>
                         </td>
                     </form>
-                </thead>    
+                </thead>
             </table>
         </div>
     </div>
@@ -82,28 +75,9 @@
             imprimir.innerHTML = '<p class="mensaje error">No has seleccionado nada<p>';
             mensaje.appendChild(imprimir);
         }
-        
     }
 </script>
-<script  src="../../scripts/Obras//Crear.Obra.js"></script>
+<script  src="../../scripts/Obras/Crear.Obra.js"></script>
 </div>
 </body>
 </html>
-
-<!-- <ul class="nav nav-tabs">
-    <li class="nav-item">
-    <a class="nav-link active" href="./Crear.Obra.php" data-toggle="tab" role="tab"  aria-selected="true">Obra</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link active" href="#">Checadores</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link active" href="#">Materiales</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link active" href="#">Transportistas</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link active" href="#">Camiones</a>
-    </li>
-</ul> -->
