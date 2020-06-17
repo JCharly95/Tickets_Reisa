@@ -23,9 +23,10 @@
     <div class="collapse navbar-collapse" id="basicExampleNav">
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
-          <a href="../Inicio/Inicio.php" class="btn blue-gradient btn-sm" ><i class="fas fa-home mr-1"></i>Inicio </a>
-          <a href="" class="btn blue-gradient btn-sm" ><i class="far fa-building mr-1"> </i>Obras</a>
+          <a href="../InicioAdmin/Inicio.php" class="btn blue-gradient btn-sm" ><i class="fas fa-home mr-1"></i>Inicio </a>
+          <a href="../CrearObras/Obras.php" class="btn blue-gradient btn-sm" ><i class="far fa-building mr-1"> </i>Obras</a>
           <a href="" class="btn blue-gradient btn-sm" ><i class="far fa-bookmark mr-1"> </i>Reportes </a>
+          <a href="../tickets/tickets.php" class="btn blue-gradient btn-sm"><i class="fas fa-ticket-alt mr-1"> </i>Tickets </a>
           <a href="../usuarios/usuarios.php" class="btn blue-gradient btn-sm" ><i class="fas fa-users mr-1"> </i>Usuarios </a>
         </ul>
         <!-- Links -->

@@ -29,18 +29,20 @@
             <div class="campo-form">
                 <p>Teclea el correo que se te activo por el admin</p>
             </div>
-            <form id="autorizacion" action="" method="post">
+            <form id="autorizacion" action="Inicio/Inicio.php" method="post">
                 <div class="campo-form">
                     <label>Email</label>
                     <input type="email" id="email" name="email" placeholder="Tu email"/>
                 </div>
-                <div class="campo-form">
-                    <input type="submit" class="btn btn-primario btn-block" value="Recuperar Cuenta"/>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primario btn-block">Recuperar Cuenta</button>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-info btn-block border" href="../index.php">Regresar a Iniciar Sesión</a>
                 </div>
             </form>
-            <a class="btn btn-info btn-block border" href="../index.php">Regresar a Iniciar Sesión</a>
         </div>
     </div>
-    <script src="../scripts/Autorizaciones/recuperarCuenta.js"></script>
+    <script src="../scripts/recuperarCuenta.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@ class Validacion{
         // Remueve el texto despues de tres segundos 
         setTimeout(function (){
             document.querySelector('p').remove();
-        }, 5000);
+        }, 4000);
     }
 
     resetAutorizacion(){

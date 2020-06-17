@@ -1,19 +1,17 @@
 
 
 class Validacion{
-    // funcion editar es estado tarea
-    mostrarmensaje(a){
-        const mensaje = document.getElementById('mensaje error');
+    mostrarmensaje(mensaje){
+        const pantalla = document.getElementById('mensaje error');
         const imprimir = document.createElement('p');
-        imprimir.innerHTML = '<p class="mensaje error">'+a+'<p>';
-        mensaje.appendChild(imprimir);
+        imprimir.innerHTML = '<p class="mensaje error">'+mensaje+'<p>';
+        pantalla.appendChild(imprimir);
 
-        // Remueve el texto dspues de tres segundos 
+        // Remueve el texto despues de tres segundos 
         setTimeout(function () {
             document.querySelector('p').remove();
-        }, 3000);
+        }, 4000);
     }
-
 }
 
 
