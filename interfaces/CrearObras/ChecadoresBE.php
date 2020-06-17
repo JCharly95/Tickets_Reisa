@@ -21,7 +21,9 @@
     $sql="INSERT INTO user_obra (ID_User_Obra, UserID, ObraID) VALUES ('NULL','$NSS', '$folioObra')";
 
     if($con->query($sql) == TRUE){
-        echo "<script languaje='Javascript'>window.location.href='Materiales.php'</script>";
+        echo "<script lenguaje='JavaScript'> 
+        window.location.href=\"Materiales.php\";
+        </script>";
     }else{
         echo "Error:".$sql."<br>".$con->error;
     }
