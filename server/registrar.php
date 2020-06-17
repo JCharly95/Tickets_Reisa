@@ -17,17 +17,17 @@
         $buscarUser=$res->num_rows;
         //Si el usuario ya existe lanzamos un aviso y enviamos al login
         if($buscarUser>0){
+            echo '<script>alert("El usuario que deseas registrar ya existe en el sistema")</script>';
             desconectar($con);
-            echo "<script languaje='Javascript'>alert('El usuario que deseas registrar ya existe en el sistema');
-            window.location.href='../index.php'</script>";
+            header('/Tickets_Reisa/index.php');
         }
         else{
             //Registramos al usuario en la base de datos
             $sql="Insert into usuarios values('".$NSS."','".$nombre."','".$dateNa."','".$email."','".$pass."',".$tipo.",1);";
             $res=$con->query($sql);
+            echo '<script>alert("El usuario fue registrado en el sistema y esta en proceso de ser activado.")</script>';
             desconectar($con);
-            echo "<script languaje='Javascript'>alert('El usuario fue registrado en el sistema y esta en proceso de ser activado.');
-            window.location.href='../index.php'</script>";
+            header('/Tickets_Reisa/index.php');
         }
     }
 ?>
