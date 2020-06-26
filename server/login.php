@@ -28,10 +28,10 @@
         case 2:
             $_SESSION['correo']=$correo;
             $_SESSION['contra']=$contra;
-            echo "window.location.href='../interfaces/Inicio/Inicio.php'</script>";
+            echo "<script languaje='Javascript'>window.location.href='../interfaces/Inicio/Inicio.php'</script>";
         break;
         default:
-            echo "window.location.href='../index.php'</script>";
+            echo "<script languaje='Javascript'>window.location.href='../index.php'</script>";
             break;
     }
 ?>

@@ -70,12 +70,8 @@
               $conexion=conectar();            
             //Todos los campos de la tabla ticket, sólo el campo de capacidad de la tabla camiones
             //donde las placas sean iguales
-            $que = "SELECT *,
-            Cam.Placa
-            FROM tickets
-            INNER JOIN camiones Cam ON tickets.Placas = Cam.Placa
-            ";
-                       
+            $que = "SELECT *,Cam.Placa FROM tickets INNER JOIN camiones Cam ON tickets.Placas = Cam.Placa";
+            
             $consulta= $conexion->query($que);
             if($consulta){
             while($fila = mysqli_fetch_array($consulta)){
