@@ -32,7 +32,7 @@
         <div class="md-form my-0">
           <ul class="navbar-nav mr-auto">
             <a href="admin.php" class="btn blue-gradient btn-sm" ><i class="fas fa-hammer mr-2"></i>Admin</a>
-            <a href="" class="btn blue-gradient btn-sm" ><i class="fas fa-sign-out-alt mr-2 "></i>Salir</a>
+            <a href="../../index.php" class="btn blue-gradient btn-sm" ><i class="fas fa-sign-out-alt mr-2 "></i>Salir</a>
           </ul>
         </div>
     </div>
