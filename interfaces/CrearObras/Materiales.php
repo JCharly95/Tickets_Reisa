@@ -49,7 +49,6 @@
                                             echo '<option value="">Seleccione </option>';
                                             while($info=mysqli_fetch_array($query))
                                             {
-                                            
                                                 echo '<option value="'.$info['ID_Mat'].'" name="material" >'.$info['Descripcion'].' </option>';
                                             }
                                         }

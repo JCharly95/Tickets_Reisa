@@ -8,7 +8,7 @@
     $primerkm=$_POST['primerKm'];
     $subkm=$_POST['subKM'];
 
-    $sql="INSERT INTO user_camion(ID_User_Cam, UserID , CamionID) VALUES ('NULL','', ' $placa')";
+    $sql="INSERT INTO user_camion(UserID , CamionID) VALUES ('', ' $placa')";
     $sql="UPDATE camiones SET Placa='$placa', Capacidad='$capacidad', Costo_Ini='$primerkm',Costo_KM='$subkm' WHERE Placa=''";
 
     if($con->query($sql) == TRUE){
