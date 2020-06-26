@@ -1,4 +1,5 @@
-<?php 
+<?php
+    
     $con=conectar();
 
     $sql="SELECT * FROM camiones WHERE ";
@@ -15,4 +16,5 @@
             echo '<tr>';
         }
     }
+    desconectar($con);
 ?>

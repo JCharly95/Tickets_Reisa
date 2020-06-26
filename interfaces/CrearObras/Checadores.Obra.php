@@ -3,7 +3,6 @@
 
     require('../../server/conexion.php');
     $con=conectar();
-    //importar el nav de its
     echo file_get_contents('../Inicio/Barra.php');
 ?>
 <!DOCTYPE html>
@@ -12,8 +11,8 @@
     <link rel="stylesheet" href="../../styles/general.css">
 </head>
 <body>
-    <div class="app">
-    <div class="container border">
+<div class="app">
+    <div class="container border" >
         <div class="table">
             <table class="table">
                 <thead>
@@ -23,21 +22,21 @@
                     </tr>
                 </thead>
                 <thead>
-                    <form  id="seleccionar" action="./ChecadoresBE.php" method="POST">
+                    <form  id="seleccionar" action="ChecadoresBE.php" method="POST">
                         <div class="container-fluid">
                             <div class="row ">
                                 <div class="col-9">
                                     <h2>Checador</h2>
-                                </div>  
+                                </div>
                                 <div class="col-3">
-                                    <input type="submit" class="btn btn-primario btn-block" value="Siguiente"/>
+                                    <button type="submit" class="btn btn-primario btn-block">Siguiente</button>
                                 </div>
                             </div>
                         </div>
                         <div id="mensaje error"></div>
                         <td>
-                            <div class="input-group">
-                                <select id="checador" name="checador" class="custom-select checador">
+                            <div class="input-group ">
+                                <select id="checador" name="checador" class="custom-select checador" >
                                 <?php
                                     $sql="SELECT NSS, Nombre FROM usuarios WHERE Tip_User>=1 AND Tip_User<=3 ";
                                     $query=$con->query($sql);
@@ -52,28 +51,31 @@
                                     }
                                 ?>
                                 </select>
+                                
                             </div>
                         </td>
                         <td>
-                        <?php
-                            $sql="SELECT MAX(Folio_Ob) FROM obras AS maximo";
-                            $query=$con->query($sql);
+                            <?php
+                                $sql="SELECT MAX(Folio_Ob) FROM obras AS maximo";
+                                $query=$con->query($sql);
 
-                            if($query==true)
-                            {
-                                while($info=mysqli_fetch_array($query))
+                                if($query==true)
                                 {
-                                    $variable = $info['0'];
-                                    echo '<input type="number" class="input-text" id="id" name="folio" value="'.$variable.'" disabled/>';
+                                    while($info=mysqli_fetch_array($query))
+                                    {
+                                        $variable = $info['0'];
+                                        echo '<input type="number" class="input-text" id="id" name="folio" value="'.$variable.'" disabled/>';
+                                    }
                                 }
-                            }
-                        ?>
+                                desconectar($con);
+                            ?>
                         </td>
                     </form>
                 </thead>
             </table>
         </div>
     </div>
+</div>
 <script src="../../scripts/Obras/Obra.Checador.js"></script>
 </body>
 </html>

@@ -19,24 +19,29 @@ class Validacion{
 // eventos del dom
 document.getElementById("propietario")
 addEventListener('submit', function (e){
-    const nomPro = document.getElementById('nombrePro').value;
-
+    const nomPro = document.getElementsByName('nombrePro').value;
+    const placa = document.getElementsByName('placas').value;
     const validacion = new Validacion();
 
     //Banderas de errores en la validacion
     var errNom=false;
+    var errpl=false;
     e.preventDefault();
 
     console.log(nomPro.value);
     
     if(nomPro==''){
-        validacion.mostrarmensaje('Error: Colocar un nombre al propietario.');
+        validacion.mostrarmensaje('Error: Seleccione un propietario.');
         errNom = true;
+    }
+    if(placa==''){
+        validacion.mostrarmensaje('Error: Seleccione un camión.');
+        errpl = true;
     }
     
 
     //Si no se registraron errores, se procede a enviar el formulario. En caso contrario se resetea para que se vuelvan a ingresar datos
-    if(errNom==false ){
+    if(errNom==false || errpl==false){
         document.getElementById("propietario").submit();
     }
 })

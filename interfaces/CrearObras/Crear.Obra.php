@@ -3,9 +3,8 @@
 
     require('../../server/conexion.php');
     $con=conectar();
-    // se va al admin
-    //importar el nav de its
     echo file_get_contents('../Inicio/Barra.php');
+    // se va al admin
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,37 +25,39 @@
                     </tr>
                 </thead>
                 <thead>
-                    <form  id="crearobra" action="./Crear.ObraBE.php" method="POST">
+                    <form  id="crearobra" action="Crear.ObraBE.php" method="POST">
                         <div class="container-fluid"> 
                             <div class="row ">
                                 <div class="col-9">
                                     <h2>Datos de Obra</h2>
                                 </div>
                                 <div class="col-3">
-                                    <input id="" type="submit" class="btn btn-primario btn-block" value="Siguiente"/>
-                                </div>  
+                                    <button id="" type="submit" class="btn btn-primario btn-block" >Siguiente</button>
+                                </div>
                             </div>
                         </div>
                         <div id="mensaje error"></div>
+
                         <td>
                             <input type="text" class="input-text" id="nomObra" name="nombreobra" placeholder="Nombre de Obra"/>
                         </td>
                         <td>
-                        <?php
-                            $sql="SELECT Folio_Ob FROM obras WHERE Nombre='' && Fec_Ini='0000-00-00' && Sta_Ob=''";
-                            $query=$con->query($sql);
+                            <?php
+                                $sql="SELECT Folio_Ob FROM obras WHERE Nombre='' && Fec_Ini='0000-00-00' && Sta_Ob=''";
+                                $query=$con->query($sql);
 
-                            if($query==true)
-                            {
-                                while($info=mysqli_fetch_array($query))
+                                if($query==true)
                                 {
-                                    echo '<input type="number" class="input-text" id="id" name="id" value="'.$info['Folio_Ob'].'" disabled/>';
+                                    while($info=mysqli_fetch_array($query))
+                                    {
+                                        echo '<input type="number" class="input-text" id="id" name="id" value="'.$info['Folio_Ob'].'" disabled/>';
+                                    }
                                 }
-                            }
-                        ?>
+                                desconectar($con);
+                            ?>
                         </td>
                         <td>
-                            <input type="date" id="fechaObra" class="input-text" name="fecha" />
+                            <input type="date" id="fechaObra" class="input-text" placeholder="Fecha" name="fecha" />
                         </td>
                         <td>
                             <div class="form-group" data-toggled="buttons">
@@ -69,7 +70,7 @@
                             </div>
                         </td>
                     </form>
-                </thead>
+                </thead>    
             </table>
         </div>
     </div>
@@ -80,7 +81,7 @@
             estatus = true;
             alert("Tu obra esta: "+val);
         }
-
+        
         if(status==true){
             const mensaje = document.getElementById('mensaje error');
             const imprimir = document.createElement('p');

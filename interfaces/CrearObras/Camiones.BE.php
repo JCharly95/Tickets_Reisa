@@ -5,14 +5,14 @@
 
     $placa=$_POST['placa'];
     $capacidad=$_POST['capacidad'];
-    $primerkm=$_POST['primerkm'];
-    $subkm=$_POST['subkm'];
-    $material=$variable;
+    $primerkm=$_POST['primerKm'];
+    $subkm=$_POST['subKM'];
 
-    $sql="INSERT INTO camiones(Placa, Capacidad, Costo_Ini, Costo_KM, Material) VALUES ('$placa','$capacidad', '$primerkm','$subkm','$material')";
-    
+    $sql="INSERT INTO user_camion(ID_User_Cam, UserID , CamionID) VALUES ('NULL','', ' $placa')";
+    $sql="UPDATE camiones SET Placa='$placa', Capacidad='$capacidad', Costo_Ini='$primerkm',Costo_KM='$subkm' WHERE Placa=''";
+
     if($con->query($sql) == TRUE){
-        echo "<script languaje='Javascript'>window.location.href='Camiones.php'</script>";
+        echo "<script languaje='Javascript'>window.location.href='Propietario.php'</script>";
     }else{
         echo "Error:".$sql."<br>".$con->error;
     }

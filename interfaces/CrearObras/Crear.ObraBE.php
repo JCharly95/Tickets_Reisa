@@ -2,8 +2,9 @@
     require('../../server/conexion.php');
 
     $con=conectar();
+
     // asigna valor de las variables
-    $Folio_Ob=$_POST['id'];
+    // $Folio_Ob=$_POST['id'];
     $nombre=$_POST['nombreobra'];
     $Fec_Ini=$_POST['fecha'];
     $status1=$_POST['form'];

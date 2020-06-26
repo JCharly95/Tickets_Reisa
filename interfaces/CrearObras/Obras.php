@@ -3,10 +3,8 @@
 
     require('../../server/conexion.php');
     $con=conectar();
-
-    // se va al admin
-    //importar el nav de its
     echo file_get_contents('../Inicio/Barra.php');
+    // se va al admin
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,10 +13,15 @@
 </head>
 <body>
     <div class="app">
-        <div class="container border">
+        <div class="container border" >
             <div class="row">
-                <form class="col-4" action="./ObrasBE.php" method="post">
-                    <input name="crearobra" type="submit" class="btn btn-primario btn-block" value="Crear Obra"/>
+                <form class="col-4" action="ObrasBE.php" method="post">
+                    <input
+                        name="crearobra"
+                        type="submit"
+                        class="btn btn-primario btn-block"
+                        value="Crear Obra"
+                    />
                 </form>
             </div>
             <div class="table-responsive">
@@ -49,6 +52,7 @@
                                     echo'</tr>';
                                 }
                             }
+                            desconectar($con);
                         ?>
                     </thead>
                 </table>

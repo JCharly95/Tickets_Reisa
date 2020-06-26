@@ -27,7 +27,7 @@
             echo "Error.<br>No se ha podido eliminar el ticket";
         }
     ?>
-    <form action="./tickets.php">
+    <form action="tickets.php">
         <input type="submit" class="btn btn-primary btn-sm" value="aceptar"> 
     </form>
     <?php
